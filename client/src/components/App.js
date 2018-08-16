@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import * as actions from '../actions';
 import MarketingBlurb from './landingPage/MarketingBlurb';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './Header';
+import Rankings from './landingPage/Rankings';
+import Footer from './Footer';
 import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
 import '../frontends/Styles/style.css';
 //import Butts from './Butts';
@@ -21,6 +23,7 @@ class App extends Component {
                     <div className="container">
                         <Header />
                         <MarketingBlurb />
+                        <Rankings />
                         <Route exact path="/"/>
                         <Footer />
                     </div>
