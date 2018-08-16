@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Butts from './Butts';
+import MarketingBlurb from './Landing Page/MarketingBlurb';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
+import '../frontends/Styles/style.css';
+//import Butts from './Butts';
 
 class App extends Component {
     componentDidMount(){
@@ -11,15 +16,19 @@ class App extends Component {
 
     render () {
         return (
-            <div className ="container">
+            <div className ="container" style={{backgroundImage: "url(" +WarhammerImage+")" }}>
                 <BrowserRouter>
                     <div className="container">
-                        <Route exact path="/" component = {Butts}/>
+                        <Header />
+                        <MarketingBlurb />
+                        <Route exact path="/"/>
+                        <Footer />
                     </div>
                 </BrowserRouter>
             </div>
+
         );
-    }
+    };
 };
 
 export default connect(null, actions)(App);
