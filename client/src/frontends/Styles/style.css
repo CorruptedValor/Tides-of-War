@@ -1,0 +1,379 @@
+/* FONT START */
+
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('Font/roboto-bold-webfont.woff2') format('woff2'),
+         url('Font/roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotobold_italic';
+    src: url('Font/roboto-bolditalic-webfont.woff2') format('woff2'),
+         url('Font/roboto-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoitalic';
+    src: url('Font/roboto-italic-webfont.woff2') format('woff2'),
+         url('Font/roboto-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('Font/roboto-regular-webfont.woff2') format('woff2'),
+         url('Font/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* FONT END */
+
+
+
+/* COLORS START */
+
+
+$offwhite: #F1F1F1;
+$lightred: #dce4ec;
+$darkred: #A42C2C;
+
+
+/* COLORS END */
+
+
+
+/* FONT START */
+
+
+.footerLinks {
+    font-family:'robotoregular';
+}
+
+.footerCopywright {
+    font-family:'robotoregular';
+}
+
+h1 {
+    font-family:'robotobold';
+}
+
+h3 {
+    font-family:'robotobold';
+    color: #F1F1F1;
+}
+
+h4 {
+    font-family:'robotobold';
+    color: #F1F1F1;
+}
+
+.boxAnn h5 {
+    font-family:'robotobold';
+    margin-bottom: -20px;
+    font-size: 10.5pt;
+}
+
+h6 {
+    font-family: 'robotoregular';
+    font-weight: normal;
+}
+
+
+/* FONT END */
+
+
+
+/* TOP NATIGATION BAR START */
+
+
+.topnav {
+
+    background-color: #222;
+	  height: 5px;
+    width: 100%;
+    padding: 20px 20px 76px 0px;
+    margin: -25px auto 60px -20px;
+    overflow: hidden;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .topnavRight {
+    margin-right: 35px;
+  }
+
+  .topnavWidth {
+    width: 100%;
+  }
+}
+
+.topnav a {
+    font-family:'robotoregular';
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+.topnavRight {
+    float: right;
+    padding-right: 0px;
+    padding-top: 20px;
+    display: inline;
+}
+
+.active {
+    color: #d72323;
+    font-family:'robotobold' !important;
+}
+
+.topnavLine {
+    height: .25rem;
+    background:linear-gradient(-90deg, #A42C2C, #d72323);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+    display: block;
+}
+
+.topnavWidth {
+    width: 53%;
+    padding-right: 12px;
+}
+
+.topnavWrap li {
+    float: left;
+    margin: 20px 8px 20px 20px;
+    list-style-type: none;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-block;
+    padding-bottom: 14px;
+}
+
+.topnavSvg {
+    height: 1.5em;
+    width: 1.5em;
+    fill: #F1F1F1;
+    display:  block;
+    position: absolute;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.topnav a:hover {
+    color: #d72323;
+    -o-transition:.3s;
+    -ms-transition:.3s;
+    -moz-transition:.3s;
+    -webkit-transition:.3s;
+    transition: all .3s ease-in-out;
+}
+
+.hovercolorGroup:hover a {
+    color: #d72323;
+    -o-transition:.3s;
+    -ms-transition:.3s;
+    -moz-transition:.3s;
+    -webkit-transition:.3s;
+    transition: all .3s ease-in-out;
+}
+
+.hovercolorGroup:hover svg {
+    fill: #d72323;
+    -o-transition:.3s;
+    -ms-transition:.3s;
+    -moz-transition:.3s;
+    -webkit-transition:.3s;
+    transition: all .3s ease-in-out;
+}
+
+#topnavLinkSpace {
+padding-left: 40px;
+}
+
+#headshadow {
+	-webkit-box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+	-moz-box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+	box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+}
+
+
+/* TOP NAVIGATION BAR END */
+
+
+
+/* BODY START */
+
+
+body {
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    margin: 0px 0px 0px 0px;
+    background-size:cover
+}
+
+a {
+    color: #F1F1F1;
+}
+
+#grad {
+		height: 60px;
+		background: linear-gradient(-90deg, #A42C2C, #d72323);
+}
+
+#roundbox {
+		-webkit-border-bottom-left-radius: 8px;
+		-webkit-border-bottom-right-radius: 8px;
+		-moz-border-bottom-left-radius: 8px;
+		-moz-border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+
+		perspective: 1px;
+		/* overflow: hidden; */
+}
+
+#activeSvg {
+		fill: #d72323;
+}
+
+.boxContainer {
+    width: 49.5% !important;
+    height: 100%;
+    margin:0px auto;
+    overflow:hidden;
+    perspective: 1px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .boxContainerMain {
+      width: 100% !important;
+  }
+}
+
+.box {
+    padding: 30px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+  	background-color: #F1F1F1;
+  	margin-bottom: 40px;
+}
+
+.boxHeader {
+  	padding-top: 1px;
+  	padding-left: 30px;
+    perspective: 1px;
+    overflow: hidden;
+
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-top-left-radius: 8px;
+    -moz-border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+/* BODY END */
+
+
+
+/* FOOTER START */
+
+
+.footer {
+    color: #F1F1F1;
+    width: 100%;
+    text-decoration: none;
+    margin-bottom: 0px;
+}
+
+.footerLinks a:hover {
+    color:#d72323;
+    -o-transition:.3s;
+    -ms-transition:.3s;
+    -moz-transition:.3s;
+    -webkit-transition:.3s;
+    transition: all .3s ease-in-out;
+}
+
+.footer li {
+    list-style-type: none;
+}
+
+.footerLinks {
+    background-color: #2e383f;
+    height: auto;
+    width: 100%;
+    padding: 20px 0px 60px 0px;
+    text-decoration: none;
+
+
+    -webkit-box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+    -moz-box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+    box-shadow: 0px -1px 5px 1px rgba(89,89,89,1);
+}
+
+.footerLinks a {
+    padding-bottom: 8px;
+    font-size: .8rem;
+    display: inline;
+    margin: 0 auto 0px 40px;
+    text-decoration: none;
+    color: #F1F1F1;
+}
+
+.footerTitle {
+    margin: 0 auto 20px 40px;
+}
+
+.footerLinksLeft {
+    display: inline-block;
+    width: 15%;
+}
+
+.footerLinksRight {
+    display: inline-block;
+    vertical-align: top;
+    width: 15%;
+}
+
+.footerCopywright {
+    background-color: #222;
+    color: #F1F1F1;
+	  height: 40px;
+    padding: 20px 0px 0px 0px;
+    font-size: .8rem;
+
+}
+
+
+/* FOOTER END */

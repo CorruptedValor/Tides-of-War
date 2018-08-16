@@ -1,0 +1,23 @@
+
+/* FONT START */
+
+
+body {
+    font-family:'robotoregular';
+}
+
+
+/* FONT END */
+
+
+
+#line-chart {
+  min-height: auto;
+	max-width: 650px;
+  margin: auto;
+}
+
+.hstats {
+	color: #222;
+	text-align: center;
+}
