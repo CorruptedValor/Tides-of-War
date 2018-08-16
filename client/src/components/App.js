@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import MarketingBlurb from './Landing Page/MarketingBlurb';
+import MarketingBlurb from './landingPage/MarketingBlurb';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
