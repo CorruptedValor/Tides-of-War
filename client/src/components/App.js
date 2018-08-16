@@ -9,6 +9,7 @@ import Rankings from './landingPage/Rankings';
 import Footer from './Footer';
 import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
 import '../frontends/Styles/style.css';
+import PlayerForm from './admin/PlayerForm';
 //import Butts from './Butts';
 
 class App extends Component {
@@ -22,9 +23,9 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="container">
                         <Header />
-                        <MarketingBlurb />
                         {/* <Rankings /> */}
-                        <Route exact path="/"/>
+                        <Route exact path="/" component = {MarketingBlurb}/>
+                        <Route exact path="/admin" component = {PlayerForm}/>
                         <Footer />
                     </div>
                 </BrowserRouter>
