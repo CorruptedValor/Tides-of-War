@@ -13,7 +13,7 @@ import '../frontends/Styles/style.css';
 
 class App extends Component {
     componentDidMount(){
-        // this.props.fetchUser();
+        this.props.fetchUser();
     }
 
     render () {
@@ -23,7 +23,7 @@ class App extends Component {
                     <div className="container">
                         <Header />
                         <MarketingBlurb />
-                        <Rankings />
+                        {/* <Rankings /> */}
                         <Route exact path="/"/>
                         <Footer />
                     </div>

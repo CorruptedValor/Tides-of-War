@@ -6,20 +6,22 @@ import '../frontends/Styles/style.css'
 
 class Header extends Component {
     renderContent(){
-        // switch (this.props.auth) {
-        //     case null:
-        //         return;
-        //     case false:
-        //         return <li><a href="/auth/google">Login with Google</a></li>;
-        //     default:
-        //         return [
-        //             <li key="1"><Payments/></li>,
-        //             <li key="3" style={{ margin: '0 10px'}}>
-        //                 Credits: {this.props.auth.credits}
-        //             </li>,
-        //             <li key="2"><a href="/api/logout">Logout</a></li>
-        //         ];
-        // }
+        console.log(this.props.auth);
+        
+        switch (this.props.auth) {
+            case null:
+                return;
+            case false:
+                return [
+                    <a key ="1" className="rightLink" href="/auth/google" >Submit List</a>,
+                    <a key ="2" className="rightLink" href="/auth/google">Sign In</a>
+                ];
+            default:
+                return [
+                    <a key ="1" className="rightLink" >Submit List</a>,
+                    <a key ="2" className="rightLink" href="/api/logout">Sign Out</a>
+                ];
+        }
     }
     
     render (){
@@ -50,10 +52,9 @@ class Header extends Component {
                                     <div className="topnavLine"></div>
                             </ul>
                         </div>
-                            <div className="topnavRight">
-                                <a className="rightLink">Submit List</a>
-                                <a className="rightLink">Sign In</a>
-                            </div>
+                        <div className="topnavRight">
+                            {this.renderContent()}
+                        </div>
                     </div>
                 </div>
             </nav>
