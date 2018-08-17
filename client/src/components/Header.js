@@ -35,19 +35,19 @@ class Header extends Component {
                                     <a href="/" id="topnavLinkSpace">Home</a>
                                 </li>
                                 <li>
-                                    <g className="hovercolorGroup">
+                                    {/* <g className="hovercolorGroup"> */}
                                        <a href="/rounds" id="topnavLinkSpace">Rounds</a>
-                                    </g>
+                                    {/* </g> */}
                                 </li>
                                 <li>
-                                    <g className="hovercolorGroup">
+                                    {/* <g className="hovercolorGroup"> */}
                                     <a href="/stats" id="topnavLinkSpace">Stats</a>
-                                    </g>
+                                    {/* </g> */}
                                 </li>
                                 <li>
-                                    <g className="hovercolorGroup">
+                                    {/* <g className="hovercolorGroup"> */}
                                         <a href="/news" id="topnavLinkSpace">News</a>
-                                    </g>
+                                    {/* </g> */}
                                 </li>
                                     <div className="topnavLine"></div>
                             </ul>

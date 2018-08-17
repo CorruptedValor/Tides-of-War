@@ -1,17 +1,16 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, SubmissionError } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 
 import PlayerField from './PlayerField';
 import playerFormFields from './playerFormFields';
-import * as actions from '../../actions';
+import { playerSubmit, fetchPlayers } from '../../actions';
 
 class PlayerForm extends Component {
-    
+
     renderFields() {
         return _.map(playerFormFields, ({label, name}) =>{
             return (<Field type="text" key={name} component={PlayerField} label={label} name={name}/>);
@@ -21,19 +20,25 @@ class PlayerForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit(this.props.playerSubmit(this.props.formValues))}>
+                <form onSubmit={
+                    this.props.handleSubmit(async () => {
+                        await this.props.submitPlayers;
+                        if (this.props.players){
+                            throw new SubmissionError({ playerKey: 'Key already in use', _error: 'Key exists!' })
+                        }
+                        })}>
                     {this.renderFields()}
                     <Link to="/">Cancel</Link>
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={this.props.submitting}>Submit</button>
                 </form>
             </div>
         )
     }
+    
 }
 
-
-
 function validate(values) {
+
     const errors = {};
 
     _.each(playerFormFields, ({ name }) => {
@@ -46,9 +51,17 @@ function validate(values) {
 }
 
 const mapStateToProps = (state) => {
-    return { formValues: state.form.playerForm.values };
+    return { 
+        formValues: state.form.playerForm.values,
+        players: state.players
+     };
 }
 
-PlayerForm = connect(mapStateToProps, actions)(PlayerForm);
+const mapDispatchToProps = (dispatch) => {
+    return { 
+            submitPlayers: (values)=> dispatch(playerSubmit(values)),
+            fetchPlayers: () => dispatch(fetchPlayers()) 
+    }
+}
 
-export default reduxForm({validate, form: 'playerForm'})(PlayerForm);
+export default reduxForm({validate, form: 'playerForm'})(connect(mapStateToProps, mapDispatchToProps)(PlayerForm));
