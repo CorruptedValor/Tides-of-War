@@ -6,7 +6,7 @@ import '../frontends/Styles/style.css'
 
 const Footer = () => {
     return ( 
-        <div class="footer">
+        <div className="footer">
 
             <div className="footerLinks" align="center">
 
