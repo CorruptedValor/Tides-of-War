@@ -8,16 +8,20 @@ const Player = mongoose.model('players');
 module.exports = (app) => {
     
     app.get('/api/player/all', async (req, res) => {
-        Player.find({}, function(err, players){
-            var playerMap = {};
+        const players =  await Player.find({});
+        
+        res.send(players);
+    //     const player =  await Player.find({}, function(err, players){
+    //         var playerMap = {};
 
-            players.forEach(function(player) {
-                playerMap[player.id] = player;
-            });
-            console.log(playerMap);            
-            res.send(playerMap);
-        })
+    //         players.forEach(function(player) {
+    //             playerMap[player.id] = player;
+    //         });
+    //         console.log(playerMap);            
+    //         res.send(playerMap);
+    //     })
 
+    // });
     });
     
 }

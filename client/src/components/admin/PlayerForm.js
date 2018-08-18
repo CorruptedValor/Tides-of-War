@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import PlayerField from './PlayerField';
 import playerFormFields from './playerFormFields';
-import { playerSubmit, fetchPlayers } from '../../actions';
+import { playerSubmit } from '../../actions';
 
 class PlayerForm extends Component {
 
@@ -20,10 +20,12 @@ class PlayerForm extends Component {
     render() {
         return (
             <div>
+                Add new player
                 <form onSubmit={
                     this.props.handleSubmit(async () => {
-                        await this.props.submitPlayers;
-                        if (this.props.players){
+                        await this.props.submitPlayer;
+                        const result = this.props.players.find(players => players.playerKey == this.props.formValues.playerKey);
+                        if (result) {
                             throw new SubmissionError({ playerKey: 'Key already in use', _error: 'Key exists!' })
                         }
                         })}>
@@ -59,8 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return { 
-            submitPlayers: (values)=> dispatch(playerSubmit(values)),
-            fetchPlayers: () => dispatch(fetchPlayers()) 
+            submitPlayer: (values)=> dispatch(playerSubmit(values))
     }
 }
 

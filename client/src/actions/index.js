@@ -15,9 +15,10 @@ export const playerSubmit = (values) => async dispatch => {
     dispatch({ type: FETCH_PLAYERS, payload: res.data });
 }
 
-export const fetchPlayers = () => async dispatch => {
+export const fetchAllPlayers = () => async dispatch => {
+    console.log('b');
     const res = await axios.get('/api/player/all');
-    // console.log(res);
+    console.log('c');
 
     dispatch({ type: FETCH_PLAYERS, payload: res.data });
 };

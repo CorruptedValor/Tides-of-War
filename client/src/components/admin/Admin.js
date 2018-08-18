@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PlayerForm from './PlayerForm';
 import { fetchUser } from '../../actions';
+import MatchForm from './MatchForm';
 
 
 
@@ -15,7 +16,12 @@ class Admin extends Component {
         
         
         if (this.props.auth && this.props.auth.isAdmin){
-            return <PlayerForm />;
+            return [
+            <div key ="10">
+                <PlayerForm key="1" />
+                <MatchForm key="2" />
+            </div>
+            ];
         } else {
             return <h1>Administrator Access Required</h1>;
         }
