@@ -1,9 +1,8 @@
-import { FETCH_PLAYER } from '../actions/types';
+import { FETCH_ALL_PLAYERS } from '../actions/types';
 
 export default function(state = [], action) {
     switch (action.type) {
-        case FETCH_PLAYER:
-            console.log(action); 
+        case FETCH_ALL_PLAYERS:
             return action.payload;
         default:
             return state;

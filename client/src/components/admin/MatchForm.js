@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 
 import matchFormFields from './matchFormFields';
-import { fetchAllPlayers } from '../../actions';
+import * as actions from '../../actions';
 
 class MatchForm extends Component {
     componentWillMount() {
@@ -14,14 +14,13 @@ class MatchForm extends Component {
     }
     
     renderFields() {
-        console.log(this.props.players);
-        var players = this.props.players;
+        const { playerList } = this.props;
         
         return _.map(matchFormFields, ({label, name, component, type, data}) =>{
-            if(name == "playerOne" || name == "playerTwo" && this.props.players) {
-                data = players.map( ({displayName}) => {
+            if(name == "playerOne" || name == "playerTwo" && playerList) {
+                data = playerList.map( ({displayName}) => {
                     return displayName;
-                });
+                }).sort();
             }
             return ([
                 <div key={name+'d'}>
@@ -64,14 +63,14 @@ function validate(values) {
 const mapStateToProps = (state) => {
     return { 
         formValues: state.form.matchForm.values,
-        players: state.players
+        playerList: state.playerList
      };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return { 
-            fetchAllPlayers: () => dispatch(fetchAllPlayers()) 
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return { 
+//             fetchAllPlayers: () => dispatch(fetchAllPlayers()) 
+//     }
+// }
 
-export default reduxForm({validate, form: 'matchForm'})(connect(mapStateToProps, mapDispatchToProps)(MatchForm));
+export default reduxForm({validate, form: 'matchForm'})(connect(mapStateToProps, actions)(MatchForm));

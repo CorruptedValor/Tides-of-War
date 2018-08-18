@@ -1,24 +1,32 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_PLAYERS } from './types';
-
+import { FETCH_USER, FETCH_PLAYER, FETCH_ALL_PLAYERS } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user');
-    // console.log(res);
 
     dispatch({ type:FETCH_USER, payload: res });
 };
 
-export const playerSubmit = (values) => async dispatch => {
-    const res = await axios.post('/api/player/add', values);
+// export const playerSubmit = (values) => async dispatch => {
+//     const res = await axios.post('/api/player/add', values);
 
-    dispatch({ type: FETCH_PLAYERS, payload: res.data });
-}
+//     dispatch({ type: FETCH_PLAYER, payload: res.data });
+// }
+
+export const playerSubmit = (values) => dispatch => {
+    return new Promise((resolve) => {
+        axios.post('/api/player/add', values)
+            .then( (response) => {
+                dispatch ({ type: FETCH_ALL_PLAYERS, payload: response.data })
+                resolve(response.data);
+            }
+
+        );
+    });
+};
 
 export const fetchAllPlayers = () => async dispatch => {
-    console.log('b');
     const res = await axios.get('/api/player/all');
-    console.log('c');
-
-    dispatch({ type: FETCH_PLAYERS, payload: res.data });
+   
+    dispatch({ type: FETCH_ALL_PLAYERS, payload: res.data });
 };
