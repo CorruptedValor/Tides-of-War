@@ -14,16 +14,13 @@ class PlayerForm extends Component {
     validatePlayer = (values) => {
         const { submitPlayer } = this.props;
     
-        submitPlayer(values).then((response) => {
-                 
-            if(response.playerKey == values.playerKey){
-    
-                    throw new SubmissionError({ playerKey: 'Key already in use' });
-                }
-                //resolve();
+        submitPlayer(values)
+            .then((response) => {  
+                if(response.playerKey == values.playerKey){
+                        throw new SubmissionError({ playerKey: 'Key already in use' });
+                    }
+
             });
-        
-        //});
     };
 
     renderFields() {
@@ -33,12 +30,12 @@ class PlayerForm extends Component {
     };
 
    render() {
-        const { handleSubmit, submitting, validatePlayer } = this.props;
+        const { handleSubmit, submitting } = this.props;
 
         return (
             <div>
                 Add new player
-                <form onSubmit={handleSubmit(validatePlayer)}>
+                <form onSubmit={handleSubmit(this.validatePlayer)}>
                     {this.renderFields()}
                     <Link to="/">Cancel</Link>
                     <button type="submit" disabled={submitting}>Submit</button>

@@ -33,13 +33,15 @@ class MatchForm extends Component {
     }
 
     render() {
+        const { handleSubmit, submitting } = this.props;
+        
         return (
             <div>
                 Submit Match Data
                 <form >
                     {this.renderFields()}
                     <Link to="/">Nope</Link>
-                    <button type="submit" disabled={this.props.submitting}>Don't</button>
+                    <button type="submit" disabled={submitting}>Don't</button>
                 </form>
             </div>
         )
@@ -67,10 +69,12 @@ const mapStateToProps = (state) => {
      };
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return { 
-//             fetchAllPlayers: () => dispatch(fetchAllPlayers()) 
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return { 
 
-export default reduxForm({validate, form: 'matchForm'})(connect(mapStateToProps, actions)(MatchForm));
+        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers())
+            
+    }
+}
+
+export default reduxForm({validate, form: 'matchForm'})(connect(mapStateToProps, mapDispatchToProps)(MatchForm));
