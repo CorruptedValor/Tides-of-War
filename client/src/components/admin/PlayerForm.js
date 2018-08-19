@@ -48,24 +48,24 @@ function validate(values) {
     return errors;
 }
 
-// const validatePlayer = (values) => {
+const validatePlayer = (values) => {
 
-//     return new Promise((resolve, reject) => {
-//         let test = playerSubmit(values);
-//         console.log(test);
+    return new Promise((resolve, reject) => {
+        // let test = playerSubmit(values);
+        // console.log(test);
         
         
-//         // playerSubmit(values).then((response) => {
+        playerSubmit(values).then((response) => {
              
-//         //     if(response.playerKey == values.playerKey){
+            if(response.playerKey == values.playerKey){
 
-//         //         reject(new SubmissionError({ playerKey: 'Key already in use' }));
-//         //     }
-//         //     resolve();
-//         // });
+                reject(new SubmissionError({ playerKey: 'Key already in use' }));
+            }
+            resolve();
+        });
        
-//     });
-// };
+    });
+};
 
 const mapStateToProps = (state) => {
     return { 
@@ -76,12 +76,13 @@ const mapStateToProps = (state) => {
      };
 }
 
-// const mapDispatchToProps = () => {
-//     return { 
+const mapDispatchToProps = () => {
+    return { 
 
-//             submitPlayer: validatePlayer
+            submitPlayer: validatePlayer,
+            actions
             
-//     }
-// }
+    }
+}
 
-export default reduxForm({validate, form: 'playerForm'})(connect(mapStateToProps, actions)(PlayerForm));
+export default reduxForm({validate, form: 'playerForm'})(connect(mapStateToProps, mapDispatchToProps)(PlayerForm));
