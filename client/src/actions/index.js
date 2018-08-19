@@ -14,15 +14,12 @@ export const fetchUser = () => async dispatch => {
 // }
 
 export const playerSubmit = (values) => dispatch => {
-    return new Promise((resolve) => {
-        axios.post('/api/player/add', values)
+    return axios.post('/api/player/add', values)
             .then( (response) => {
                 dispatch ({ type: FETCH_ALL_PLAYERS, payload: response.data })
-                resolve(response.data);
-            }
-
+                return response.data;
+            } 
         );
-    });
 };
 
 export const fetchAllPlayers = () => async dispatch => {
