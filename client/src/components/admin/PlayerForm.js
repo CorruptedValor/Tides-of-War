@@ -11,7 +11,20 @@ import *  as actions from '../../actions';
 
 class PlayerForm extends Component {
 
+    validatePlayer = (values) => {
+        const { submitPlayer } = this.props;
     
+        submitPlayer(values).then((response) => {
+                 
+            if(response.playerKey == values.playerKey){
+    
+                    throw new SubmissionError({ playerKey: 'Key already in use' });
+                }
+                //resolve();
+            });
+        
+        //});
+    };
 
     renderFields() {
         return _.map(playerFormFields, ({label, name}) =>{
@@ -20,19 +33,21 @@ class PlayerForm extends Component {
     };
 
    render() {
-        const { handleSubmit, playerSubmit, submitting } = this.props;
+        const { handleSubmit, submitting, validatePlayer } = this.props;
 
         return (
             <div>
                 Add new player
-                <form onSubmit={handleSubmit(playerSubmit)}>
+                <form onSubmit={handleSubmit(validatePlayer)}>
                     {this.renderFields()}
                     <Link to="/">Cancel</Link>
                     <button type="submit" disabled={submitting}>Submit</button>
                 </form>
             </div>
         )
-    }   
+    }
+
+       
 }
 
 function validate(values) {
@@ -48,24 +63,7 @@ function validate(values) {
     return errors;
 }
 
-// const validatePlayer = (values) => {
 
-//     return new Promise((resolve, reject) => {
-//         let test = playerSubmit(values);
-//         console.log(test);
-        
-        
-//         // playerSubmit(values).then((response) => {
-             
-//         //     if(response.playerKey == values.playerKey){
-
-//         //         reject(new SubmissionError({ playerKey: 'Key already in use' }));
-//         //     }
-//         //     resolve();
-//         // });
-       
-//     });
-// };
 
 const mapStateToProps = (state) => {
     return { 
@@ -76,12 +74,13 @@ const mapStateToProps = (state) => {
      };
 }
 
-// const mapDispatchToProps = () => {
-//     return { 
+const mapDispatchToProps = (dispatch) => {
+    return { 
 
-//             submitPlayer: validatePlayer
+            submitPlayer: (values) => dispatch(actions.playerSubmit(values)),
+            actions
             
-//     }
-// }
+    }
+}
 
-export default reduxForm({validate, form: 'playerForm'})(connect(mapStateToProps, actions)(PlayerForm));
+export default reduxForm({validate, form: 'playerForm'})(connect(mapStateToProps, mapDispatchToProps)(PlayerForm));
