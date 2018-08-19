@@ -20,12 +20,12 @@ class PlayerForm extends Component {
     };
 
    render() {
-        const { handleSubmit, playerSubmit, submitting } = this.props;
+        const { handleSubmit, submitPlayer, submitting } = this.props;
 
         return (
             <div>
                 Add new player
-                <form onSubmit={handleSubmit(playerSubmit)}>
+                <form onSubmit={handleSubmit(submitPlayer)}>
                     {this.renderFields()}
                     <Link to="/">Cancel</Link>
                     <button type="submit" disabled={submitting}>Submit</button>
@@ -55,7 +55,7 @@ const validatePlayer = (values) => {
         // console.log(test);
         
         
-        playerSubmit(values).then((response) => {
+        actions.playerSubmit(values).then((response) => {
              
             if(response.playerKey == values.playerKey){
 
