@@ -7,8 +7,8 @@ import Landing from './landingPage/Landing';
 import Header from './Header';
 import Rankings from './landingPage/Rankings';
 import Footer from './Footer';
-import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
-import '../frontends/Styles/style.css';
+import WarhammerImage from './Images/warhammer40kbg.jpg';
+import './styles/style.css';
 import Admin from './admin/Admin';
 
 class App extends Component {

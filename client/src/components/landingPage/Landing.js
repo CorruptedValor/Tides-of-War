@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../frontends/Styles/style.css';
+import '../styles/style.css';
 import MarketingBlurb from './MarketingBlurb';
 import NewsMini from './NewsMini';
 import Rankings from './Rankings';

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
-import '../frontends/Styles/style.css';
-import HomeIcon from '../frontends/Logo/HomeIcon';
-import RoundsIcon from '../frontends/Logo/RoundsIcon';
-import StatsIcon from '../frontends/Logo/StatsIcon';
-import NewsIcon from '../frontends/Logo/NewsIcon';
+import './styles/style.css';
+import HomeIcon from './Logo/HomeIcon';
+import RoundsIcon from './Logo/RoundsIcon';
+import StatsIcon from './Logo/StatsIcon';
+import NewsIcon from './Logo/NewsIcon';
 
 class Header extends Component {
     renderContent(){

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import '../../frontends/Styles/style.css'
-import '../../frontends/Styles/main.css'
+import '../styles/style.css'
+import '../styles/main.css'
 
 const MarketingBlurb = () => {
     return(

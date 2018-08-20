@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
-import '../../frontends/Styles/style.css';
-import '../../frontends/Styles/main.css';
+import '../styles/style.css';
+import '../styles/main.css';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 

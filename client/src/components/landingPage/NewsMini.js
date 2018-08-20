@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../frontends/Styles/style.css'
-import '../../frontends/Styles/main.css'
-import ArrowIcon from '../../frontends/Logo/ArrowIcon';
+import '../styles/style.css'
+import '../styles/main.css'
+import ArrowIcon from '../Logo/ArrowIcon';
 
 const NewsMini = () => {
     return(

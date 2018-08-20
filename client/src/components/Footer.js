@@ -1,11 +1,9 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import ReactSVG from 'react-svg';
-import '../frontends/Styles/style.css'
+
+import './styles/style.css'
 
 const Footer = () => {
-    return ( 
+    return (
         <div className="footer">
 
             <div className="footerLinks" align="center">
@@ -36,7 +34,7 @@ const Footer = () => {
                 © Copyright 2018 Battlerounds
                 </div>
 
-        </div> 
+        </div>
     );
 };
 
