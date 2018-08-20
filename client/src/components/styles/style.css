@@ -245,6 +245,13 @@ a {
     color: #F1F1F1;
 }
 
+.ContentImage img {
+  padding-top: 20px;
+  padding-left: 20px;
+  display: block !important;
+  margin:auto !important;
+}
+
 #grad {
 		height: 60px;
 		background: linear-gradient(-90deg, #A42C2C, #d72323);
