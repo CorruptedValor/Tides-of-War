@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReactSVG from 'react-svg';
+
 import '../../frontends/Styles/style.css';
+import '../../frontends/Styles/main.css';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
 
 var trStyle = {
 	alignment: 'center'
@@ -24,89 +28,94 @@ class Rankings extends Component {
         //             <li key="2"><a href="/api/logout">Logout</a></li>
         //         ];
         // }
+
     }
 
-    render (){
-        return(
-					<div className="box" id="roundbox">
-						<p><table className="tableRanking" align="center">
-							<col width="10%">
-							<col width="10%">
-							<col width="10%">
-							<col width="10%">
-							<thead>
-									<tr id="colhead" height="40px">
-										<th>Ranking</th>
-										<th scope="col">Player</th>
-										<th scope="col">Score</th>
-										<th scope="col">W/L/D</th>
-									</tr>
-							</thead>
-									<tr style = {{ trStyle }}>
-										<td>1</td>
-										<td>Player 1</td>
-										<td>10,000</td>
-										<td>10/0/0</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>2</td>
-										<td>Player 2</td>
-										<td>9,000</td>
-										<td>9/1/0</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>3</td>
-										<td>Player 3</td>
-										<td>8,000</td>
-										<td>9/0/1</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>4</td>
-										<td>Player 4</td>
-										<td>7,000</td>
-										<td>7/2/1</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>5</td>
-										<td>Player 5</td>
-										<td>6,000</td>
-										<td>6/3/1</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>6</td>
-										<td>Player 6</td>
-										<td>5,000</td>
-										<td>4/6/0</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>7</td>
-										<td>Player 7</td>
-										<td>4,000</td>
-										<td>5/5/0</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>8</td>
-										<td>Player 8</td>
-										<td>3,000</td>
-										<td>3/6/1</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>9</td>
-										<td>Player 9</td>
-										<td>2,000</td>
-										<td>1/9/0</td>
-									</tr>
-									<tr style = {{ trStyle }}>
-										<td>10</td>
-										<td>Player 10</td>
-										<td>1,000</td>
-										<td>0/10/0</td>
-									</tr>
-						</col></col></col></col></table></p>
+
+			render() {
+			  const data = [{
+			    playerName: 'Player 1',
+			    score: 26,
+					wld: '1/2/3'
+			  }, {
+					playerName: 'Player 2',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 3',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 4',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 5',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 6',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 7',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 8',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 9',
+					score: 26,
+					wld: '1/2/3'
+				}, {
+					playerName: 'Player 10',
+					score: 26,
+					wld: '1/2/3'
+				}]
+
+			  const columns = [{
+			    Header: 'Player Name',
+			    accessor: 'playerName' // String-based value accessors!
+			  }, {
+			    Header: 'Score',
+			    accessor: 'score'
+			  }, {
+			    Header: 'W/L/D', // Custom header components!
+			    accessor: 'wld'
+			  }]
+
+			  return(
+
+					<div>
+						<div className = "boxHeader" id="grad">
+								<h3 className = "boxTitle">Top 10</h3>
+						</div>
+						<div className="box" id="roundbox">
+
+						<style>{`
+					    table{
+					     borderRadius:2.5px;
+					    }
+					  `}</style>
+
+							<p><ReactTable data={data}
+							showPagination={false}
+  						defaultPageSize={10}
+							sortable={false}
+							resizable={false}
+
+							className="-striped -highlight"
+
+							columns={columns}/></p>
+
+						</div>
 					</div>
-        );
+
+				)
+			}
     };
-};
 
 function mapStateToProps({ auth }){
     return { auth };
