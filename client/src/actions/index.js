@@ -16,7 +16,7 @@ export const fetchUser = () => async dispatch => {
 export const playerSubmit = (values) => dispatch => {
     return axios.post('/api/player/add', values)
             .then( (response) => {
-                dispatch ({ type: FETCH_ALL_PLAYERS, payload: response.data })
+                dispatch ({ type: FETCH_PLAYER, payload: response.data })
                 return response.data;
             } 
         );

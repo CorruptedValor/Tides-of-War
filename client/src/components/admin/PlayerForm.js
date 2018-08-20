@@ -4,17 +4,16 @@ import { reduxForm, Field, SubmissionError } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
-import PlayerField from './PlayerField';
 import playerFormFields from './playerFormFields';
 import *  as actions from '../../actions';
+import TextField from '../FormFieldTypes/TextField';
 
 class PlayerForm extends Component {
 
     validatePlayer = (values) => {
         const { submitPlayer } = this.props;
     
-        submitPlayer(values)
+        return submitPlayer(values)
             .then((response) => {  
                 if(response.playerKey == values.playerKey){
                         throw new SubmissionError({ playerKey: 'Key already in use' });
@@ -25,7 +24,7 @@ class PlayerForm extends Component {
 
     renderFields() {
         return _.map(playerFormFields, ({label, name}) =>{
-            return (<Field type="text" key={name} component={PlayerField} label={label} name={name}/>);
+            return (<Field type="text" key={name} component={TextField} label={label} name={name}/>);
         });
     };
 
