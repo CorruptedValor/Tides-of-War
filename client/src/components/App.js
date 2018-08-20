@@ -3,14 +3,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import MarketingBlurb from './landingPage/MarketingBlurb';
+import Landing from './landingPage/Landing';
 import Header from './Header';
 import Rankings from './landingPage/Rankings';
 import Footer from './Footer';
 import WarhammerImage from '../frontends/Images/warhammer40kbg.jpg';
 import '../frontends/Styles/style.css';
 import Admin from './admin/Admin';
-//import Butts from './Butts';
 
 class App extends Component {
     componentDidMount(){
@@ -19,12 +18,11 @@ class App extends Component {
 
     render () {
         return (
-            <div className ="container" style={{backgroundImage: "url(" +WarhammerImage+")" }}>
+            <div className ="container" style={{backgroundImage: "url(" +WarhammerImage+")", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <BrowserRouter>
                     <div className="container">
                         <Header />
-                        {/* <Rankings /> */}
-                        <Route exact path="/" component = {MarketingBlurb}/>
+                        <Route exact path="/" component = {Landing}/>
                         <Route exact path="/admin" component = {Admin}/>
                         <Footer />
                     </div>
