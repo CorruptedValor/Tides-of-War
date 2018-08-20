@@ -7,20 +7,21 @@ export const fetchUser = () => async dispatch => {
     dispatch({ type:FETCH_USER, payload: res });
 };
 
-// export const playerSubmit = (values) => async dispatch => {
-//     const res = await axios.post('/api/player/add', values);
-
-//     dispatch({ type: FETCH_PLAYER, payload: res.data });
-// }
-
-export const playerSubmit = (values) => dispatch => {
-    return axios.post('/api/player/add', values)
-            .then( (response) => {
-                dispatch ({ type: FETCH_PLAYER, payload: response.data })
-                return response.data;
-            } 
-        );
+export const playerSubmit = (values) => {
+    return {
+        promise: axios.post('/api/player/add', values),
+        type: FETCH_PLAYER
+    } 
 };
+
+// export const playerSubmit = (values) => {
+//     return axios.post('/api/player/add', values)
+//         .then( (response) => {
+//             dispatch ({ type: FETCH_PLAYER, payload: response.data })
+//             return response.data;
+//         } 
+//     );
+// };
 
 export const fetchAllPlayers = () => async dispatch => {
     const res = await axios.get('/api/player/all');

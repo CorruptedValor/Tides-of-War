@@ -63,13 +63,11 @@ function validate(values) {
 
     const errors = {};
 
-    //errors.playerOneScore = 
-
-    _.each(matchFormFields, ({ name }) => {
-        if (!values[name]){
-            errors[name] = 'Required';
-        }
-    })
+        _.each(matchFormFields, ({ name }) => {
+            if (!values[name]){
+                errors[name] = 'Required';
+            }
+        })
 
     return errors;
 }

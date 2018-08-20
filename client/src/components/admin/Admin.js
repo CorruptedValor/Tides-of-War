@@ -18,8 +18,8 @@ class Admin extends Component {
         if (this.props.auth && this.props.auth.isAdmin){
             return [
             <div key ="10">
-                {/* <PlayerForm key="1" /> */}
-                <MatchForm key="2" />
+                <PlayerForm key="1" />
+                {/* <MatchForm key="2" /> */}
             </div>
             ];
         } else {
