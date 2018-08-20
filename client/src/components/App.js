@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Landing from './landingPage/Landing';
 import Header from './Header';
-import Rankings from './landingPage/Rankings';
 import Footer from './Footer';
 import WarhammerImage from './Images/warhammer40kbg.jpg';
 import './styles/style.css';
 import Admin from './admin/Admin';
+import Stats from './statsPage/Stats';
 
 class App extends Component {
     componentDidMount(){
@@ -23,6 +23,7 @@ class App extends Component {
                     <div className="container">
                         <Header />
                         <Route exact path="/" component = {Landing}/>
+                        <Route exact path="/stats" component = {Stats}/>
                         <Route exact path="/admin" component = {Admin}/>
                         <Footer />
                     </div>

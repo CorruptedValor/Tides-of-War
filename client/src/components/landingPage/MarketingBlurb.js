@@ -14,9 +14,15 @@ const MarketingBlurb = () => {
                 <h3 className = "boxTitle">Welcome to Battlerounds!</h3>
             </div>
             <div className="box" id="roundbox">
-                <div class="ContentImage">
-                <img src={DiceImage} style={{width: '30%', float: 'right'}}/>
-                </div>
+                <img src={DiceImage}
+                  style={{
+                    width: '30%',
+                    float: 'right',
+                    display: 'block',
+                    margin: 'auto',
+                    paddingTop: '20px',
+                    paddingLeft: '20px'
+                  }}/>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod. Aliquam tristique egestas lacus, sed tincidunt velit pretium id. Suspendisse semper turpis quis diam malesuada porta. Sed rutrum, magna id condimentum tincidunt, velit purus malesuada massa, at rutrum ipsum nunc eu est. Fusce ac consequat turpis, eu lobortis lectus. In varius risus eget elementum mollis.</p>
                 <p />
