@@ -11,21 +11,26 @@ import * as actions from '../../actions';
 class MatchForm extends Component {
 
     convertAndValidate = (values) => {
-        console.log(values);
+        const { missionSubmit } = this.props;
+        
+        missionSubmit(values)
+            .then((response) => {
+                console.log('responded');                
+            })
 
     }
 
     componentWillMount() {
         this.props.fetchAllPlayers();
     }
-    
+
     renderFields() {
-        const { playerList } = this.props;
+        const  playerList = this.props.playerList.data;
 
         return _.map(matchFormFields, ({label, name, component, type, data, textField, valueField}) =>{
-           
+
             if((name === "playerOne" || name === "playerTwo") && playerList) {
-                
+
                 data = playerList.map( ({displayName, playerKey }) => {
                     return {displayName, playerKey};
                 }).sort(function(a,b) {
@@ -82,7 +87,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return { 
 
-        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers())
+        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers()),
+        missionSubmit: (values) => dispatch(actions.missionAdminSubmit(values))
             
     }
 }

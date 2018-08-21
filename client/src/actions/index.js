@@ -1,30 +1,30 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_PLAYER, FETCH_ALL_PLAYERS } from './types';
+import { FETCH_USER, FETCH_PLAYER, FETCH_ALL_PLAYERS, FETCH_MISSION } from './types';
 
-export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/api/current_user');
+export const fetchUser = () => {
+    return {
+        payload: axios.get('/api/current_user'),
+        type: FETCH_USER
+    } 
+};
 
-    dispatch({ type:FETCH_USER, payload: res });
+export const missionAdminSubmit = (values) => {
+    return {
+        payload: axios.post('/api/mission/admin', values),
+        type: FETCH_MISSION
+    } 
 };
 
 export const playerSubmit = (values) => {
     return {
-        promise: axios.post('/api/player/add', values),
+        payload: axios.post('/api/player/add', values),
         type: FETCH_PLAYER
     } 
 };
 
-// export const playerSubmit = (values) => {
-//     return axios.post('/api/player/add', values)
-//         .then( (response) => {
-//             dispatch ({ type: FETCH_PLAYER, payload: response.data })
-//             return response.data;
-//         } 
-//     );
-// };
-
-export const fetchAllPlayers = () => async dispatch => {
-    const res = await axios.get('/api/player/all');
-   
-    dispatch({ type: FETCH_ALL_PLAYERS, payload: res.data });
+export const fetchAllPlayers = () => {
+    return {
+        payload: axios.get('/api/player/all'),   
+        type: FETCH_ALL_PLAYERS
+    }
 };

@@ -36,7 +36,7 @@ class Header extends Component {
                         <div className="topnavWrap">
                             <ul>
                                 <li>
-                                		<g class="hovercolorGroup">
+                                		<g className="hovercolorGroup">
                                       <HomeIcon/>
                                       <a href="/" id="topnavLinkSpace">Home</a>
                                     </g>

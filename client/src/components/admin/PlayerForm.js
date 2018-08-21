@@ -12,10 +12,11 @@ class PlayerForm extends Component {
 
     validatePlayer = (values) => {
         const { submitPlayer } = this.props;
-    
+
         return submitPlayer(values)
             .then((response) => {  
-                if(response.playerKey == values.playerKey){
+
+                if(response.value.data.playerKey == values.playerKey){
                         throw new SubmissionError({ playerKey: 'Key already in use' });
                     }
 
@@ -63,10 +64,7 @@ function validate(values) {
 
 const mapStateToProps = (state) => {
     return { 
-
-        formValues: state.form.playerForm.values,
-        players: state.players
-
+        formValues: state.form.playerForm.values
      };
 }
 

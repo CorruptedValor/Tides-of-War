@@ -6,7 +6,7 @@ import playerReducer from './playerReducer';
 import playerListReducer from './playerListReducer';
 
 export default combineReducers({
-    auth: authReducer,
+    user: authReducer,
     form: reduxForm,
     player: playerReducer,
     playerList: playerListReducer

@@ -13,6 +13,6 @@ import reducers from './reducers';
 // window.axios = axios;
 
 
-const store = createStore(reducers, applyMiddleware(reduxThunk, promise));
+const store = createStore(reducers, applyMiddleware( promise()));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.querySelector('#root'));

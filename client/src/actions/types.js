@@ -1,3 +1,4 @@
-export const FETCH_USER = 'fetch_user';
-export const FETCH_ALL_PLAYERS = 'fetch_all_players';
-export const FETCH_PLAYER = 'fetch_player';
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_ALL_PLAYERS = 'FETCH_ALL_PLAYERS';
+export const FETCH_PLAYER = 'FETCH_PLAYER';
+export const FETCH_MISSION = 'FETCH_MISSION';
