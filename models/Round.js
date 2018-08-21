@@ -2,5 +2,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const roundListSchema = new Schema({
-    roundList: [ String ]
+    round: Number,
+    season: Number
 })

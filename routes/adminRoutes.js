@@ -6,42 +6,76 @@ const Player = mongoose.model('players');
 
 module.exports = (app) => {
 
-    app.post('/api/mission/admin', requireLogin, requireAdmin, async (req, res) => {
+    app.put('/api/reporting/admin', requireLogin, requireAdmin, async (req, res) => {
 
-        var plOne, plTwo;
+        //var plOne, plTwo;
         const { season, round, mission, playerOne, playerOneScore, playerTwo, playerTwoScore } = req.body;
 
-        const playerOneObj = await Player.findOne({playerKey: playerOne.playerKey});
-        const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
-        
-        plOne = playerOneObj;
-        plTwo = playerTwoObj;
+        // const playerOneObj = await Player.findOne({playerKey: playerOne.playerKey});
+        // const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
 
-        plOne.matches.push({season, round, mission, opponentId: plTwo._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
-        plTwo.matches.push({season, round, mission, opponentId: plOne._id, personalScore: playerTwoScore, opponentScore: playerOneScore});
+        Player.updateOne(
+            {
+                    playerKey: playerOne.playerKey,
+                    matches: {
+                        $elemMatch: { season: season, round: round }
+                    }
+            },
+            {
+                $set: {
+                    'matches.$.mission': mission,
+                    'matches.$.personalScore': playerOneScore,
+                    'matches.$.opponentKey': playerTwo.playerKey,
+                    'matches.$.opponentScore': playerTwoScore
+                }
+            }
+        ).exec();
+        Player.updateOne(
+            {
+                    playerKey: playerTwo.playerKey,
+                    matches: {
+                        $elemMatch: { season: season, round: round }
+                    }
+                
+            },
+            {
+                $set: {
+                    'matches.$.mission': mission,
+                    'matches.$.personalScore': playerTwoScore,
+                    'matches.$.opponentKey': playerOne.playerKey,
+                    'matches.$.opponentScore': playerOneScore
+                }
+            }
+        ).exec();
 
-        await plOne.save();
-        await plTwo.save();
-        
         res.send('got it');
 
     })
 
     app.post('/api/player/add', requireLogin, requireAdmin, async (req, res) => {
- 
-        const { playerKey, displayName } = req.body;
+        
+        var roundGenerator;
+        const { playerKey, displayName, season, round } = req.body;
 
         const player = new Player({
             playerKey,
             displayName
         });
+        
+        
 
         const existingKey = await Player.findOne({ playerKey })
         if (existingKey) {
             res.send(existingKey);
         } else {
+            roundGenerator = player;
+            for (i = 1; i<=season; i++ ){
+                for(x = 1; x<=round; x++) {
+                    roundGenerator.matches.push({season: i, round: x, mission: null, opponentKey: null, personalScore: null, opponentScore: null });
+                }
+            }
             try {
-                await player.save();
+                await roundGenerator.save();
                 res.send();
             } catch (err) {
                 res.status(422).send(err);
