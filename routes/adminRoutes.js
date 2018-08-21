@@ -10,18 +10,35 @@ module.exports = (app) => {
     app.post('/api/mission/admin', requireLogin, requireAdmin, async (req, res) => {
 
         const { season, round, mission, playerOne, playerOneScore, playerTwo, playerTwoScore } = req.body;
-
         const playerOneObj = await Player.findOne({playerKey: playerOne.playerKey});
         const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
-        console.log(playerOneObj);
-        console.log(playerTwoObj);
         /*
+        dupTest = playerOneObj.matches.filter({season})
+        
+        if (playerOne.playerKey === playerTwo.playerKey) { //The player had a bye
+            
+        }else {
+
+            const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
+            console.log(playerOneObj);
+            console.log(playerTwoObj);
+        }
+
+
             Psuedocode:
             find playerOneObj, find playerTwoObj
-            find if either player has a matching season/round
-            PlayerOneObj.matches.push([{season, round, mission}, opponentId: PlayerTwoObj._id, personalScore: playerOneScore, opponentScore: playerTwoScore])
-        */
-       res.send('got it');
+            find if either player has a matching season/round */
+
+        PlayerOneObj.matches.push({season, round, mission, opponentId: PlayerTwoObj._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
+        PlayerTwoObj.matches.push({season, round, mission, opponentId: PlayerTwoObj._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
+
+        await PlayerOneObj.save();
+        await PlayerTwoObj.save();
+
+        res.send('got it');
+           
+
+       //res.send('got it');
     })
 
     app.post('/api/player/add', requireLogin, requireAdmin, async (req, res) => {
