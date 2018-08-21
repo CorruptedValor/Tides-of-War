@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const requireLogin =require('../middlewares/requireAdmin');
 const requireAdmin =require('../middlewares/requireLogin');
 
@@ -9,36 +8,23 @@ module.exports = (app) => {
 
     app.post('/api/mission/admin', requireLogin, requireAdmin, async (req, res) => {
 
+        var plOne, plTwo;
         const { season, round, mission, playerOne, playerOneScore, playerTwo, playerTwoScore } = req.body;
+
         const playerOneObj = await Player.findOne({playerKey: playerOne.playerKey});
         const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
-        /*
-        dupTest = playerOneObj.matches.filter({season})
         
-        if (playerOne.playerKey === playerTwo.playerKey) { //The player had a bye
-            
-        }else {
+        plOne = playerOneObj;
+        plTwo = playerTwoObj;
 
-            const playerTwoObj = await Player.findOne({playerKey: playerTwo.playerKey});
-            console.log(playerOneObj);
-            console.log(playerTwoObj);
-        }
+        plOne.matches.push({season, round, mission, opponentId: plTwo._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
+        plTwo.matches.push({season, round, mission, opponentId: plOne._id, personalScore: playerTwoScore, opponentScore: playerOneScore});
 
-
-            Psuedocode:
-            find playerOneObj, find playerTwoObj
-            find if either player has a matching season/round */
-
-        PlayerOneObj.matches.push({season, round, mission, opponentId: PlayerTwoObj._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
-        PlayerTwoObj.matches.push({season, round, mission, opponentId: PlayerTwoObj._id, personalScore: playerOneScore, opponentScore: playerTwoScore});
-
-        await PlayerOneObj.save();
-        await PlayerTwoObj.save();
-
+        await plOne.save();
+        await plTwo.save();
+        
         res.send('got it');
-           
 
-       //res.send('got it');
     })
 
     app.post('/api/player/add', requireLogin, requireAdmin, async (req, res) => {
