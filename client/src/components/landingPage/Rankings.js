@@ -20,18 +20,28 @@ class Rankings extends Component {
 	}
 	
 
-
+	sortByScore(data) {
+		if (data)
+			return data
+				.sort((a,b) => {
+					if (a.totalScore > b.totalScore) return -1;
+					if (a.totalScore < b.totalScore) return 1;
+					return 0;
+				})
+	}
 
 	
 
     render() {
-    
+		
+		const { playerList } = this.props
+
 		const columns = [{
 			Header: 'Player Name',
 			accessor: 'displayName' // String-based value accessors!
 		}, {
 			Header: 'Score',
-			accessor: 'score'
+			accessor: 'totalScore'
 		}, {
 			Header: 'W/L/D', // Custom header components!
 			accessor: 'wld'
@@ -48,7 +58,7 @@ class Rankings extends Component {
 				<style>{`table{borderRadius:2.5px;}`}</style>
 
 					<div>
-						<ReactTable data={generateMatchData(this.props.playerList)}
+						<ReactTable data={this.sortByScore(generateMatchData(playerList))}
 						showPagination={false}
 						defaultPageSize={10}
 						sortable={false}

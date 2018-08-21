@@ -1,10 +1,10 @@
-const generateMatchData = (matchData) => {
-    if (matchData.data){
+const generateMatchData = (playerList) => {
+    if (playerList.data){
 
-        const data = matchData.data.map(({displayName, matches}) => {
+        const data = playerList.data.map(({displayName, matches}) => {
             let win = 0, loss = 0, draw = 0;
             console.log(matches.personalScore);				
-            const score = matches.reduce( (total, {personalScore}) => {
+            const totalScore = matches.reduce( (total, {personalScore}) => {
 
                 if (personalScore){	
         
@@ -25,13 +25,9 @@ const generateMatchData = (matchData) => {
             wld = win + '/' + loss + '/' + draw;
             let gamesPlayed = win + loss + draw;
 
-            return {displayName, score, wld, win, loss, draw, gamesPlayed};
+            return {displayName, totalScore, wld, win, loss, draw, gamesPlayed, matches};
         }).filter(({gamesPlayed}) => {
             return (gamesPlayed !== 0);
-        }).sort((a,b) => {
-            if (a.score > b.score) return -1;
-            if (a.score < b.score) return 1;
-            return 0;
         });
     
         return data;
