@@ -10,7 +10,7 @@ export const fetchUser = () => {
 
 export const missionAdminSubmit = (values) => {
     return {
-        payload: axios.post('/api/mission/admin', values),
+        payload: axios.put('/api/reporting/admin', values),
         type: FETCH_MISSION
     } 
 };

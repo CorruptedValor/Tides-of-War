@@ -11,11 +11,12 @@ import * as actions from '../../actions';
 class MatchForm extends Component {
 
     convertAndValidate = (values) => {
-        const { missionSubmit } = this.props;
+        const { missionSubmit, reset } = this.props;
         
         missionSubmit(values)
             .then((response) => {
-                console.log('responded');                
+                console.log('responded'); 
+                reset();
             })
 
     }
@@ -93,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default reduxForm({ validate, form: 'matchForm' })(connect(mapStateToProps, mapDispatchToProps)(MatchForm));
+export default reduxForm({ validate, form: 'matchForm'})(connect(mapStateToProps, mapDispatchToProps)(MatchForm));

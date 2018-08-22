@@ -9,24 +9,39 @@ import *  as actions from '../../actions';
 import TextField from '../FormFieldTypes/TextField';
 
 class PlayerForm extends Component {
+    componentDidMount(){
+        this.handleInitialize();
+    }
+
+    handleInitialize(){
+        const initData = {
+            "season": 2,
+            "round": 10
+        };
+
+        this.props.initialize(initData);
+    }
 
     validatePlayer = (values) => {
-        const { submitPlayer } = this.props;
+        const { submitPlayer, reset} = this.props;
 
         return submitPlayer(values)
             .then((response) => {  
 
                 if(response.value.data.playerKey == values.playerKey){
-                        throw new SubmissionError({ playerKey: 'Key already in use' });
-                    }
+                    throw new SubmissionError({ playerKey: 'Key already in use' });
+                } else {
+                    reset();
+                }
 
             });
     };
 
     renderFields() {
-        return _.map(playerFormFields, ({label, name}) =>{
-            return (<Field type="text" key={name} component={TextField} label={label} name={name}/>);
+        return _.map(playerFormFields, ({label, name, component, type, data, textField, valueField}) =>{
+            return (<Field type={type} key={name} component={component} label={label} name={name} data={data} textField={textField} valueField={valueField}/>);
         });
+    
     };
 
    render() {

@@ -5,7 +5,7 @@ const matchSchema = new Schema({
     season: Number,
     round: Number,
     mission: Number,
-    _opponentId: { type: Schema.Types.ObjectId, ref: 'Player' },
+    opponentKey: String,
     personalScore: Number,
     opponentScore: Number,
     //_listId: { type: Schema.Types.ObjectId, ref: 'List' }
