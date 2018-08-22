@@ -6,7 +6,7 @@ import LineGraph from './LineGraph';
 
 const Stats = () => {
   return(
-		<div class="boxContainer">
+		<div className="boxContainer">
 			<LineGraph/>
 		</div>
     );
