@@ -11,7 +11,9 @@ class LineGraph extends Component {
 		{name: 'Player 2', score: 267},
 		{name: 'Player 3', score: 79}
 	]
-	
+
+	// comment
+
 	render(){
 			return (
 
