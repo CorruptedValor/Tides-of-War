@@ -1,58 +1,92 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import * as actions from '../../actions';
+
 import '../styles/style.css'
 import '../styles/main.css'
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
 
 class LineGraph extends Component {
-	data=[
-		{name: 'Player 1', score: 100},
-		{name: 'Player 2', score: 267},
-		{name: 'Player 3', score: 79}
-	]
+
+	componentWillMount() {
+		this.props.fetchAllPlayers();
+	}
+
+	generateRounds() {
+		const { playerList } = this.props
+		if (playerList.data) {
+			return playerList.data.map(({matches}) => {
+				 const playedRounds = matches.filter(({personalScore}) => personalScore !== null)
+				 return _.chain(playedRounds)
+				 					.pluck('round')
+									.uniq()
+									.value()
+			} )
+		}
+	}
+
+	renderLines(){
+		const {playerList} = this.props
+
+		if (playerList.data){
+		
+			return _.map(playerList.data, ({ matches }) =>{
+				const matchData = matches.map(({personalScore, round}) => {
+					let score
+					round = 'Round ' + round;
+					if (personalScore > 42) {
+						score = personalScore - 350;
+					} else if (personalScore < 0) {
+						score = personalScore + 150;
+					} else {
+						score = personalScore;
+					}
+					return { score, round };
+				}).filter(({score}) => score !== null )
+				return (<Line type="monotone" dataKey="score" stroke="#ff7300" yAxisId={0} data={matchData} />)
+			}) 		
+		}
+	};
 
 	// comment
 
 	render(){
+		console.log(this.generateRounds());
+		
 			return (
+				<LineChart
+					width={600}
+					height={400}
+					data = {this.generateRounds}
+				>
 
+					<XAxis dataKey="round" />
+					<YAxis dataKey="score" />
+					<Tooltip />
+					<CartesianGrid stroke="#f5f5f5" />
+					{this.renderLines()}
 
-          <div>
-            <div className = "boxHeader" id="grad">
-                <h3 className = "boxTitle">Stats</h3>
-            </div>
-            <div className="box" id="roundbox">
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod. Aliquam tristique egestas lacus, sed tincidunt velit pretium id.</p>
-                <p />
-
-								<LineChart
-								  width={400}
-								  height={400}
-									data={this.data}
-								>
-								  <XAxis dataKey="name" />
-									<YAxis dataKey="score" />
-								  <Tooltip />
-								  <CartesianGrid stroke="#f5f5f5" />
-								  <Line type="monotone" dataKey="uv" stroke="#ff7300" yAxisId={0} />
-								  <Line type="monotone" dataKey="pv" stroke="#387908" yAxisId={1} />
-								</LineChart>
-
-            </div>
-          </div>
-
-
+				</LineChart>
     );
 	};
 }
 
 
-function mapStateToProps(state) {
-    return {
-        user: state.user
-    };
+const mapStateToProps = (state) => {
+	return { 
+			playerList: state.playerList
+	 };
 }
 
-export default connect(mapStateToProps)(LineGraph);
+const mapDispatchToProps = (dispatch) => {
+	return { 
+
+			fetchAllPlayers: () => dispatch(actions.fetchAllPlayers()),
+					
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LineGraph);
