@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/main.css';
 import '../styles/style.css';
 import LineGraph from './LineGraph';
-
+import GraphForm from './GraphForm';
 
 const Stats = () => {
   return(
@@ -13,7 +13,7 @@ const Stats = () => {
 					<h3 className = "boxTitle">Stats</h3>
 				</div>
 				<div className="box" id="roundbox">
-
+				<GraphForm/>
 				<LineGraph/>
 				</div>
 			</div>

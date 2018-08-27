@@ -7,7 +7,7 @@ const matchSchema = new Schema({
     mission: Number,
     opponentKey: String,
     personalScore: Number,
-    opponentScore: Number,
+    opponentScore: Number
     //_listId: { type: Schema.Types.ObjectId, ref: 'List' }
 })
 
