@@ -17,31 +17,66 @@ class LineGraph extends Component {
 	}
 
 	renderLines(){
-		const {playerList} = this.props
+		const {playerList, formValues} = this.props
 
-		if (playerList.data){
-		
-			return _.map(playerList.data, ({ matches, displayName }) =>{
-					
-				const matchData = matches.map(({personalScore, round}) => {
-						let score
-						round = 'Round ' + round;
-						if (personalScore > 42) {
-							score = personalScore - 350;
-						} else if (personalScore < 0) {
-							score = personalScore + 150;
-						} else {
-							score = personalScore;
-						}
-						return { score, round, displayName };
+		if (playerList.data ){
+			if (formValues.values ){
+	
+				return _.chain(playerList.data)
+					.filter(({playerKey}) => {
+							let key = playerKey;
+							let result = false;
+						formValues.values.player.map(({playerKey} )=>{
+							if (playerKey === key) {
+								result = true;
+							}
+						})
+						return result;						
+					})
+					.map(({ matches, displayName }) =>{
+						
+					const matchData = matches.map(({personalScore, round}) => {
+							let score
+							round = "Round " + round; 
+							if (personalScore > 42) {
+								score = personalScore - 350;
+							} else if (personalScore < 0) {
+								score = personalScore + 150;
+							} else {
+								score = personalScore;
+							}
+							return { score, round, displayName };
 
-					}).filter(({score}) => score !== null )
+						}).filter(({score}) => score !== null )
+						
 
-					const color = '#'+Math.floor(Math.random()*16777215).toString(16);
-					
-				return <Line key={displayName} type="monotone" dataKey="score" data = {matchData} stroke={color} name={displayName} />
-			}) 		
+						const color = '#'+Math.floor(Math.random()*16777215).toString(16);
+						
+					return <Line key={displayName} type="monotone" dataKey="score" data = {matchData} stroke={color} name={displayName} />
+				}).value();
 
+			} else {
+				return _.map(playerList.data, ({ matches, displayName }) =>{
+						
+					const matchData = matches.map(({personalScore, round}) => {
+							let score
+							round = "Round " + round; 
+							if (personalScore > 42) {
+								score = personalScore - 350;
+							} else if (personalScore < 0) {
+								score = personalScore + 150;
+							} else {
+								score = personalScore;
+							}
+							return { score, round, displayName };
+
+						}).filter(({score}) => score !== null )
+
+						const color = '#'+Math.floor(Math.random()*16777215).toString(16);
+						
+					return <Line key={displayName} type="monotone" dataKey="score" data = {matchData} stroke={color} name={displayName} />
+				})
+			}
 		}
 	};
 
@@ -52,10 +87,9 @@ class LineGraph extends Component {
 				height={400}
 			>
 
-				<XAxis dataKey="round" type="category" allowDuplicatedCategory={false} />
+				<XAxis dataKey="round" type="category" allowDuplicatedCategory={false} interval={0}/>
 				<YAxis dataKey="score" />
-				<Tooltip payload = {[{ 'round':'round', 'displayName': 'score'}]} />
-				<CartesianGrid stroke="#f5f5f5" />
+				<Tooltip payload = {[{ 'round': 'round', 'displayName': 'score'}]} />
 				{this.renderLines()}
 				<Legend />
 
@@ -68,9 +102,13 @@ class LineGraph extends Component {
 
 
 const mapStateToProps = (state) => {
-	return { 
-			playerList: state.playerList
-	 };
+
+	return {
+		formValues: state.form.graphForm,
+		playerList: state.playerList
+
+	};
+    
 }
 
 const mapDispatchToProps = (dispatch) => {

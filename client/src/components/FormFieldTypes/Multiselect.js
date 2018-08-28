@@ -1,7 +1,7 @@
 import React from 'react';
 import Multiselect from 'react-widgets/lib/Multiselect';
 
-export default  ({ input, data, label, valueField, textField }) =>
+export default  ({ input, data, label, valueField, textField, containerClassName }) =>
 {
     return (
         <div>
@@ -12,6 +12,7 @@ export default  ({ input, data, label, valueField, textField }) =>
                 data = {data}
                 valueField = {valueField}
                 textField = {textField}
+                containerClassName = {containerClassName}
             />
         </div>
     )
