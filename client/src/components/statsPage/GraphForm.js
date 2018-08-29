@@ -29,12 +29,7 @@ class GraphForm extends Component {
                     return 0;
                 });
 
-                // startingValue = data.map(({displayName}) => {
-                //     return displayName;
-                // });
-
-                //console.log(data);
-                
+            
             }
             return ([
                 <div key={name+'d'}>

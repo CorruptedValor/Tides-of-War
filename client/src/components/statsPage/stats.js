@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/main.css';
 import '../styles/style.css';
 import LineGraph from './LineGraph';
+import BarGraph from './BarGraph';
 import GraphForm from './GraphForm';
 
 const Stats = () => {

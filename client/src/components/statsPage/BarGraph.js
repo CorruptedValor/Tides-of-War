@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import * as actions from '../../actions';
 
 import '../styles/style.css'
@@ -10,13 +10,13 @@ import '../styles/main.css'
 
 
 
-class LineGraph extends Component {
+class BarGraph extends Component {
 
 	componentWillMount() {
 		this.props.fetchAllPlayers();
 	}
 
-	renderLines(){
+	renderBars(){
 		const {playerList, formValues} = this.props
 
 		if (playerList.data ){
@@ -54,7 +54,7 @@ class LineGraph extends Component {
 
 						const color = '#'+Math.floor(Math.random()*16777215).toString(16);
 						
-					return <Line key={displayName} type="monotone" dataKey="score" data = {matchData} stroke={color} name={displayName} />
+					return <Bar key={displayName} dataKey="score" data = {matchData} fill={color} name={displayName} />
 				}).value();
 
 			} else {
@@ -77,7 +77,7 @@ class LineGraph extends Component {
 
 						const color = '#'+Math.floor(Math.random()*16777215).toString(16);
 						
-					return <Line key={displayName} type="monotone" dataKey="score" data = {matchData} stroke={color} name={displayName} />
+					return <Bar key={displayName} dataKey="score" data = {matchData} fill={color} name={displayName} />
 				})
 			}
 		}
@@ -85,7 +85,7 @@ class LineGraph extends Component {
 
 	render(){
 		return (
-			<LineChart
+			<BarChart
 				width={600}
 				height={400}
 			>
@@ -93,10 +93,10 @@ class LineGraph extends Component {
 				<XAxis dataKey="round" type="category" allowDuplicatedCategory={false} interval={0}/>
 				<YAxis dataKey="score" />
 				<Tooltip payload = {[{ 'round': 'round', 'displayName': 'score'}]} />
-				{this.renderLines()}
+				{this.renderBars()}
 				<Legend />
 
-			</LineChart>
+			</BarChart>
 			);
 		}		
 
@@ -122,4 +122,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LineGraph);
+export default connect(mapStateToProps, mapDispatchToProps)(BarGraph);
