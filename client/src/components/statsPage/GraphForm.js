@@ -19,6 +19,7 @@ class GraphForm extends Component {
 
         return _.map(statFormFields, ({label, name, component, type, data, textField, valueField}) =>{
             
+            //sort the player list alphabetically
             if((name === "player") && playerList) {
 
                 data = playerList.map( ({displayName, playerKey }) => {
@@ -32,9 +33,7 @@ class GraphForm extends Component {
             
             }
             return ([
-                <div key={name+'d'}>
                     <Field type={type} key={name} component={component} label={label} name={name} data={data} textField={textField} valueField={valueField}/>
-                </div>
             ]);
         });
     }
