@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const MatchSchema = require('./Match');
+const mongoose = require('mongoose')
+const { Schema } = mongoose
+const MatchSchema = require('./Match')
 
 const playerSchema = new Schema({
-    _user: { type: Schema.Types.ObjectId, ref: 'User', default: null },
-    displayName: String,
-    playerKey: String,
-    matches: [MatchSchema]
-});
+  _user: { type: Schema.Types.ObjectId, ref: 'User', default: null },
+  displayName: String,
+  playerKey: String,
+  matches: [MatchSchema]
+})
 
-mongoose.model('players', playerSchema);
+mongoose.model('players', playerSchema)
