@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-
 //can only take the playerList object that fetchAllPlayers returns
 //only returns the data per season
 
@@ -20,13 +19,11 @@ const generateMatchData = (playerList, seasonInput) => {
             
             //determine the player's current standing in the overall ranking in a season
 
-            const totalScore = matches.filter(({season}) => season === seasonInput )
+            const totalScore = matches.filter(({season}) => season === seasonInput)
             .reduce((total, {personalScore}) => {
 
                 if (personalScore){	
-                
                     return total + personalScore;
-
                 } else {
                     return total + 0;
                 }
@@ -56,6 +53,7 @@ const generateMatchData = (playerList, seasonInput) => {
 
                     draw += 1;
                     gameScore = personalScore;
+
                 }
                 return { gameScore, round, displayName, opponentKey, season, mission, personalScore };
 
