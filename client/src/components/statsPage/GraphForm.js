@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
@@ -17,12 +16,12 @@ class GraphForm extends Component {
     renderFields() {
         const  playerList = this.props.playerList.data;
 
-        return _.map(statFormFields, ({label, name, component, type, data, textField, valueField}) =>{
+        return _.map(statFormFields, ({label, name, component, type, data, textField, valueField, initialValues}) =>{
             
             //sort the player list alphabetically
             if((name === "player") && playerList) {
 
-                data = playerList.map( ({displayName, playerKey }) => {
+                data = playerList.map(({ displayName, playerKey }) => {
                     return {displayName, playerKey};
                 }).sort(function(a,b) {
                     if (a.displayName < b.displayName) return -1;
@@ -33,7 +32,7 @@ class GraphForm extends Component {
             
             }
             return ([
-                    <Field type={type} key={name} component={component} label={label} name={name} data={data} textField={textField} valueField={valueField}/>
+                    <Field type={type} key={name} component={component} label={label} name={name} data={data} textField={textField} valueField={valueField} initialValues={initialValues}/>
             ]);
         });
     }
@@ -52,21 +51,12 @@ class GraphForm extends Component {
 
 
 const mapStateToProps = (state) => {
-    if (state.form.graphForm) {
-        //console.log(state.form.graphForm.values);
-        return {
-                        
-            formValues: state.form.graphForm.values,
-            playerList: state.playerList
+    return {
+                    
+        //formValues: state.form.graphForm.values,
+        playerList: state.playerList
 
-        };
-    } else {
-        return {
-        
-            playerList: state.playerList
-
-        };
-    }
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -77,4 +67,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default reduxForm({ form: 'graphForm' })(connect(mapStateToProps, mapDispatchToProps)(GraphForm));
+export default reduxForm({form: 'graphForm'})(connect(mapStateToProps, mapDispatchToProps)(GraphForm));

@@ -13,7 +13,7 @@ import '../styles/main.css'
 
 class LineGraph extends Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchAllPlayers();
 	}
 
@@ -24,8 +24,9 @@ class LineGraph extends Component {
 
 		const gameData = generateMatchData(playerList);
 		
-		if (formValues.values){
+		try {
 
+			
 			return gameData
 				.filter(({playerKey}) => {
 					const key = playerKey;
@@ -47,7 +48,7 @@ class LineGraph extends Component {
 					return <Line key={displayName} type="monotone" dataKey="gameScore" data = {matchData} stroke={color} name={displayName} />
 				})
 			
-		} else {
+		} catch(error) {
 
 			return gameData.map(({matchData, displayName})=>{
 				
@@ -55,6 +56,7 @@ class LineGraph extends Component {
 					
 				return <Line key={displayName} type="monotone" dataKey="gameScore" data = {matchData} stroke={color} name={displayName} />
 			})
+		
 		}
 		
 	};
@@ -66,7 +68,7 @@ class LineGraph extends Component {
 				height={400}
 			>
 
-				<XAxis dataKey="round" type="category" allowDuplicatedCategory={false} interval={0}/>
+				<XAxis dataKey="round" type="number" interval={0} domain={['dataMin', 'dataMax']} allowDecimals={false} minTickGap={0}/>
 				<YAxis dataKey="gameScore" />
 				<Tooltip payload = {[{ 'round': 'round', 'displayName': 'score'}]} />
 				{this.renderLines()}
@@ -84,7 +86,7 @@ const mapStateToProps = (state) => {
 
 	return {
 		
-		formValues: state.form.graphForm.values,
+		formValues: state.form.graphForm,
 		playerList: state.playerList
 
 	};
