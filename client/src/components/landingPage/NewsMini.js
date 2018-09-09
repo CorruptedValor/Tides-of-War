@@ -15,6 +15,7 @@ const NewsMini = () => {
 					<h5><b>Chapter Approved Preview</b></h5>
 					<h6>Sunday, July 15, 2019</h6>
 						<p class="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
+            <br/>
 						<g class="readmoreGroup"><a href="#" id="readmoreLink">Read more <ArrowIcon/>
 						</a></g>
 						<p><div class="divider" width="90%"></div></p>
@@ -22,6 +23,7 @@ const NewsMini = () => {
 						<h5><b>Aeldari are Dominating</b></h5>
 						<h6>Sunday, July 9, 2019</h6>
 							<p class="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
+              <br/>
 							<g class="readmoreGroup"><a href="#" id="readmoreLink">Read more <ArrowIcon/>
 							</a></g>
 							<p><div class="divider" width="90%"></div></p>
@@ -29,6 +31,7 @@ const NewsMini = () => {
 							<h5><b>Grey Knights Receive Nerfs</b></h5>
 							<h6>Sunday, July 5, 2019</h6>
 								<p class="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
+                <br/>
 								<g class="readmoreGroup"><a href="#" id="readmoreLink">Read more <ArrowIcon/>
 								</a></g><p></p>
 
