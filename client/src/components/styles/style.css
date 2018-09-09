@@ -169,8 +169,8 @@ h6 {
 } */
 
 .topnavWidth {
-    width: 53%;
-    padding-right: 12px;
+    width: 1070px;
+    padding-right: 10px;
 }
 
 .topnavWrap li {
@@ -267,7 +267,7 @@ a {
 }
 
 .boxContainer {
-    width: 49.5% !important;
+    width: 1000px;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -338,7 +338,7 @@ a {
     background-color: #2e383f;
     height: auto;
     width: 100%;
-    padding: 20px 0px 60px 0px;
+    padding: 40px 0px 40px 0px;
     text-decoration: none;
 
 
@@ -351,24 +351,23 @@ a {
     padding-bottom: 8px;
     font-size: .8rem;
     display: inline;
-    margin: 0 auto 0px 40px;
     text-decoration: none;
     color: #F1F1F1;
 }
 
 .footerTitle {
-    margin: 0 auto 20px 40px;
+    margin: 0 auto 20px 0px;
 }
 
 .footerLinksLeft {
     display: inline-block;
-    width: 15%;
+    width: 220px;
 }
 
 .footerLinksRight {
     display: inline-block;
     vertical-align: top;
-    width: 15%;
+    width: 220px;
 }
 
 .footerCopywright {
