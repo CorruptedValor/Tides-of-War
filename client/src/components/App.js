@@ -10,6 +10,7 @@ import WarhammerImage from './Images/warhammer40kbg.jpg';
 import './styles/style.css';
 import Admin from './admin/Admin';
 import Stats from './statsPage/Stats';
+import News from './newsPage/News';
 
 class App extends Component {
     componentDidMount(){
@@ -24,6 +25,7 @@ class App extends Component {
                         <Header />
                         <Route exact path="/" component = {Landing}/>
                         <Route exact path="/stats" component = {Stats}/>
+                        <Route exact path="/news" component = {News}/>
                         <Route exact path="/admin" component = {Admin}/>
                         <Footer />
                     </div>
