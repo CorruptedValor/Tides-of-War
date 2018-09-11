@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReactSVG from 'react-svg';
+
 
 import './styles/style.css';
-import HomeIcon from './Logo/HomeIcon';
-import RoundsIcon from './Logo/RoundsIcon';
-import StatsIcon from './Logo/StatsIcon';
-import NewsIcon from './Logo/NewsIcon';
+import HomeIcon from './logo/HomeIcon';
+import RoundsIcon from './logo/RoundsIcon';
+import StatsIcon from './logo/StatsIcon';
+import NewsIcon from './logo/NewsIcon';
 
 class Header extends Component {
     renderContent(){
-        console.log(this.props.auth);
-        
-        switch (this.props.auth) {
-            case null:
-                return;
-            case false:
-                return [
-                    <a key ="1" className="rightLink" href="/auth/google" >Submit List</a>,
-                    <a key ="2" className="rightLink" href="/auth/google">Sign In</a>
-                ];
-            default:
-                return [
-                    <a key ="1" className="rightLink" >Submit List</a>,
-                    <a key ="2" className="rightLink" href="/api/logout">Sign Out</a>
-                ];
+        if (this.props.user){
+            switch (this.props.user.auth){
+                case null:
+                    return;
+                case false:
+                    return [
+                        <a key ="1" className="rightLink" href="/auth/google" >Submit List</a>,
+                        <a key ="2" className="rightLink" href="/auth/google">Sign In</a>
+                    ];
+                default:
+                    return [
+                        <a key ="1" className="rightLink" >Submit List</a>,
+                        <a key ="2" className="rightLink" href="/api/logout">Sign Out</a>
+                    ];
+            }
         }
     }
 
@@ -74,8 +74,8 @@ class Header extends Component {
     };
 };
 
-function mapStateToProps({ auth }){
-    return { auth };
+function mapStateToProps({ user }){
+    return { user };
 };
 
 export default connect(mapStateToProps)(Header);
