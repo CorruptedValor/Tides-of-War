@@ -25,7 +25,6 @@ const Footer = () => {
                         <li><h4 className="footerTitle">Useful Links</h4></li>
                         <li><a href="https://docs.google.com/document/d/1ltQMdeDqYRXOhvdYT3dtUSji3AISvZRM8gDlhOXDaF8/edit">ITC Tournament Rules</a></li>
                         <li><a href="https://www.battlescribe.net/?tab=news">Battlescribe</a></li>
-                        <li><a href="/admin">Admin Page</a></li>
                     </ul>
                 </div>
             </div>
