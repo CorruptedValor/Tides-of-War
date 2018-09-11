@@ -93,9 +93,7 @@ tbody {
 
 .boxAnn {
     background-color: #F1F1F1;
-  	padding: 25px;
-    padding-top: 3px;
-    padding-bottom: 15px;
+  	padding: 0px 30px 30px 30px;
 
     -webkit-border-bottom-left-radius: 8px;
     -webkit-border-bottom-right-radius: 8px;
