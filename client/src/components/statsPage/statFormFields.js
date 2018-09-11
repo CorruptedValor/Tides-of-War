@@ -1,6 +1,6 @@
 // import TextField from '../FormFieldTypes/TextField';
 // import DropdownList from '../FormFieldTypes/DropdownList';
-import Multiselect from '../FormFieldTypes/Multiselect';
+import Multiselect from '../formFieldTypes/Multiselect';
 import 'react-widgets/dist/css/react-widgets.css';
 
 export default [

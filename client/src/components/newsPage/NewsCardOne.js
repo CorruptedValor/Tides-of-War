@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/main.css';
 import '../styles/style.css';
 import './newscard.css';
-import ArrowIcon from '../Logo/ArrowIcon';
+import ArrowIcon from '../logo/ArrowIcon';
 
 const NewsCardOne = () => {
   return(

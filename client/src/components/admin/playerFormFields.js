@@ -1,5 +1,5 @@
-import DropdownList from '../FormFieldTypes/DropdownList';
-import TextField from '../FormFieldTypes/TextField';
+import DropdownList from '../formFieldTypes/DropdownList';
+import TextField from '../formFieldTypes/TextField';
 import 'react-widgets/dist/css/react-widgets.css';
 
 export default [

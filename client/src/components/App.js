@@ -6,7 +6,7 @@ import * as actions from '../actions';
 import Landing from './landingPage/Landing';
 import Header from './Header';
 import Footer from './Footer';
-import WarhammerImage from './Images/warhammer40kbg.jpg';
+import WarhammerImage from './images/warhammer40kbg.jpg';
 import './styles/style.css';
 import Admin from './admin/Admin';
 import Stats from './statsPage/Stats';

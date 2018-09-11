@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import playerFormFields from './playerFormFields';
 import *  as actions from '../../actions';
-import TextField from '../FormFieldTypes/TextField';
+import TextField from '../formFieldTypes/TextField';
 
 class PlayerForm extends Component {
     componentDidMount(){
@@ -26,7 +26,7 @@ class PlayerForm extends Component {
         const { submitPlayer, reset} = this.props;
 
         return submitPlayer(values)
-            .then((response) => {  
+            .then((response) => {
 
                 if(response.value.data.playerKey == values.playerKey){
                     throw new SubmissionError({ playerKey: 'Key already in use' });
@@ -41,7 +41,7 @@ class PlayerForm extends Component {
         return _.map(playerFormFields, ({label, name, component, type, data, textField, valueField}) =>{
             return (<Field type={type} key={name} component={component} label={label} name={name} data={data} textField={textField} valueField={valueField}/>);
         });
-    
+
     };
 
    render() {
@@ -59,7 +59,7 @@ class PlayerForm extends Component {
         )
     }
 
-       
+
 }
 
 function validate(values) {
@@ -78,17 +78,17 @@ function validate(values) {
 
 
 const mapStateToProps = (state) => {
-    return { 
+    return {
         formValues: state.form.playerForm.values
      };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { 
+    return {
 
             submitPlayer: (values) => dispatch(actions.playerSubmit(values)),
             actions
-            
+
     }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/style.css'
 import '../styles/main.css'
-import DiceImage from '../Images/DiceImage.png';
+import DiceImage from '../images/DiceImage.png';
 
 const MarketingBlurb = () => {
     return(

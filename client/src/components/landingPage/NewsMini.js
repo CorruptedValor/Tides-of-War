@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../styles/style.css'
 import '../styles/main.css'
-import ArrowIcon from '../Logo/ArrowIcon';
+import ArrowIcon from '../logo/ArrowIcon';
 
 const NewsMini = () => {
     return(

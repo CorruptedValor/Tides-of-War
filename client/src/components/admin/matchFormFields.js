@@ -1,6 +1,6 @@
-import SelectList from '../FormFieldTypes/SelectList';
-import DropdownList from '../FormFieldTypes/DropdownList';
-import TextField from '../FormFieldTypes/TextField';
+import SelectList from '../formFieldTypes/SelectList';
+import DropdownList from '../formFieldTypes/DropdownList';
+import TextField from '../formFieldTypes/TextField';
 import 'react-widgets/dist/css/react-widgets.css';
 
 
@@ -13,6 +13,3 @@ export default [
     {label: 'Player Two', name: 'playerTwo', component: DropdownList, type: null, data: [], textField: 'displayName',  valueField: 'playerKey' },
     {label: 'Player Two Score', name: 'playerTwoScore', component: TextField, type: 'text' }
 ];
-
-
-
