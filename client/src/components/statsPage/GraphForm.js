@@ -29,6 +29,7 @@ class GraphForm extends Component {
                     return 0;
                 });
 
+                initialValues = data;
             
             }
             return ([

@@ -1,4 +1,4 @@
-import { FETCH_PLAYER } from '../actions/types';
+//import { FETCH_PLAYER } from '../actions/types';
 
 export default function(state = [], action) {
     switch (action.type) {               

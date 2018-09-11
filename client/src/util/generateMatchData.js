@@ -1,4 +1,4 @@
-import _ from 'lodash';
+//import _ from 'lodash';
 
 //can only take the playerList object that fetchAllPlayers returns
 //only returns the data per season
@@ -31,33 +31,38 @@ const generateMatchData = (playerList, seasonInput) => {
 
             //gather match stats out of the playerList.matches object
 
-            const matchData = matches.map(({personalScore, round, opponentKey, season, mission}) => {
-                
-                let gameScore = 0;
+            const matchData = matches
+                .map(({personalScore, round, opponentKey, season, mission}) => {
+                    
+                    let gameScore = 0;
 
-                //adjust score for win-loss. Players add 350 to their game score for a win, subtract 150 for a loss, and no change on a tie. 
-                //This resets their score to the number of points they got during the actual match
-                //check player's score to determine if that match was won or lost.
+                    //adjust score for win-loss. Players add 350 to their game score for a win, subtract 150 for a loss, and no change on a tie. 
+                    //This resets their score to the number of points they got during the actual match
+                    //check player's score to determine if that match was won or lost.
 
-                if (personalScore > 42) {
+                    if (personalScore > 42) {
 
-                    win += 1;
-                    gameScore = personalScore - 350;
+                        win += 1;
+                        gameScore = personalScore - 350;
 
-                } else if (personalScore < 0) {
+                    } else if (personalScore < 0) {
 
-                    loss += 1;
-                    gameScore = personalScore + 150;
+                        loss += 1;
+                        gameScore = personalScore + 150;
 
-                } else {
+                    } else if (!personalScore) {
+                        
+                        gameScore = null;
 
-                    draw += 1;
-                    gameScore = personalScore;
+                    } else {
 
-                }
-                return { gameScore, round, displayName, opponentKey, season, mission, personalScore };
+                        draw += 1;
+                        gameScore = personalScore;
 
-            }).filter(({gameScore}) => gameScore !== null )
+                    }
+                    return { gameScore, round, displayName, opponentKey, season, mission, personalScore };
+
+                }).filter(({gameScore}) => gameScore !== null )
             
             //return win/loss/draw in String format
 
