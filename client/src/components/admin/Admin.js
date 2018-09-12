@@ -5,20 +5,22 @@ import PlayerForm from './PlayerForm';
 import * as actions from '../../actions';
 import AdminReqError from './AdminReqError';
 import MatchForm from './MatchForm';
+import Loader from '../loader/Loader';
 
 
 
 class Admin extends Component {
+    
     componentWillMount() {
         this.props.fetchUser();
         this.props.fetchAllPlayers();
     }
-    
+
     renderContent() {
         const {user} = this.props;
-        
+
         if( user === null) {
-            return <p>loading...</p>; //loader
+            return <Loader />; //loader
 
         } else if (!user.auth) {
 
@@ -27,7 +29,9 @@ class Admin extends Component {
         } else if(user.auth && user.auth.isAdmin){
             if (!this.props.playerList.data){
                 //loader
-                return <p>loading...</p>
+
+                return <Loader />
+
             } else {
                 return [
                     <div key ="10">
@@ -36,9 +40,11 @@ class Admin extends Component {
                     </div>
                 ];
             }
-        } else 
-            return <AdminReqError />;
-        
+
+        } else
+            return <Loader />;
+
+
     }
 
     render(){
@@ -61,7 +67,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUser: () => dispatch(actions.fetchUser()),
         fetchAllPlayers: () => dispatch(actions.fetchAllPlayers())
-    };      
+
+    };
 }
 
 

@@ -25,7 +25,6 @@ class LineGraph extends Component {
 		const gameData = generateMatchData(playerList);
 		
 		try {
-
 			
 			return gameData
 				.filter(({playerKey}) => {
@@ -68,7 +67,7 @@ class LineGraph extends Component {
 				height={400}
 			>
 
-				<XAxis dataKey="round" type="number" interval={0} domain={['dataMin', 'dataMax']} allowDecimals={false} minTickGap={0}/>
+				<XAxis dataKey="round" type="number" interval={0} domain={['dataMin', 'dataMax']} allowDecimals={false} minTickGap={0} />
 				<YAxis dataKey="gameScore" />
 				<Tooltip payload = {[{ 'round': 'round', 'displayName': 'score'}]} />
 				{this.renderLines()}

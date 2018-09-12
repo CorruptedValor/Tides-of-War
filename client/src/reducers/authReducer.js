@@ -16,7 +16,7 @@ export default function (state = null, action) {
                 auth: false
             }
         case "FETCH_USER_FULFILLED":
-            console.log('returned');            
+           
             return {
                 ...state,
                 fetching: false,

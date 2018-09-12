@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 import './styles/style.css';
@@ -38,27 +38,27 @@ class Header extends Component {
                         <div className="topnavWrap">
                             <ul>
                                 <li>
-                                		<g className="hovercolorGroup">
+                                	<g className="hovercolorGroup">
                                       <HomeIcon/>
-                                      <a href="/" id="topnavLinkSpace">Home</a>
+                                      <NavLink to="/">Home</NavLink>
                                     </g>
                                 </li>
                                 <li>
                                     <g className="hovercolorGroup">
                                       <RoundsIcon/>
-                                      <a href="/rounds" id="topnavLinkSpace">Rounds</a>
+                                      <NavLink to="/rounds">Rounds</NavLink>
                                     </g>
                                 </li>
                                 <li>
                                     <g className="hovercolorGroup">
                                     <StatsIcon/>
-                                    <a href="/stats" id="topnavLinkSpace">Stats</a>
+                                    <NavLink to="/stats">Stats</NavLink>
                                     </g>
                                 </li>
                                 <li>
                                     <g className="hovercolorGroup">
                                       <NewsIcon/>
-                                      <a href="/news" id="topnavLinkSpace">News</a>
+                                      <NavLink to="/news">News</NavLink>
                                     </g>
                                 </li>
                                     <div className="topnavLine"></div>
