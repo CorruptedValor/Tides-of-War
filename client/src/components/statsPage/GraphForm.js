@@ -9,10 +9,6 @@ import * as actions from '../../actions';
 
 class GraphForm extends Component {
 
-    componentWillMount() {
-        this.props.fetchAllPlayers();
-    }
-
     renderFields() {
         const  playerList = this.props.playerList.data;
 

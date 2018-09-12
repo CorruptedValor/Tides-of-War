@@ -13,9 +13,6 @@ import '../styles/main.css'
 
 class LineGraph extends Component {
 
-	componentDidMount() {
-		this.props.fetchAllPlayers();
-	}
 
 	renderLines(){
 		const {playerList, formValues} = this.props
@@ -24,6 +21,7 @@ class LineGraph extends Component {
 
 		const gameData = generateMatchData(playerList);
 		
+		//try-catch to deal with a bug where graph form doesn't initialize values on mount
 		try {
 			
 			return gameData
@@ -39,12 +37,14 @@ class LineGraph extends Component {
 					})
 
 					return result;
+					
 				})
 				.map(({matchData, displayName})=>{
 				
 					const color = '#'+Math.floor(Math.random()*16777215).toString(16);
 					
 					return <Line key={displayName} type="monotone" dataKey="gameScore" data = {matchData} stroke={color} name={displayName} />
+					
 				})
 			
 		} catch(error) {
@@ -52,8 +52,10 @@ class LineGraph extends Component {
 			return gameData.map(({matchData, displayName})=>{
 				
 				const color = '#'+Math.floor(Math.random()*16777215).toString(16);
-					
+
+
 				return <Line key={displayName} type="monotone" dataKey="gameScore" data = {matchData} stroke={color} name={displayName} />
+
 			})
 		
 		}
