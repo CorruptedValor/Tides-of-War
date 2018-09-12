@@ -86,14 +86,14 @@ tbody {
     vertical-align: top;
 
     box-sizing: border-box;
-    display:inline-block;
+    /* display:inline-block; */
 }
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
    .boxRanking {
      display: none !important;
    }
-}
+} */
 
 .boxAnn {
     background-color: #F1F1F1;
