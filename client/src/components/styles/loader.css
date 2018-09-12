@@ -1,0 +1,42 @@
+.cls-1 {
+  fill: none;
+}
+
+.cls-2 {
+  fill: #222;
+}
+
+.loaderSVG {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  padding-left: 50%;
+}
+
+.loaderSVG .cls-2 {
+  position: absolute;
+  animation: spinner 6s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  from {
+    -webkit-transform-origin: rotate(0deg);
+    -o-transform-origin: rotate(0deg);
+    transform: rotate(0deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+}

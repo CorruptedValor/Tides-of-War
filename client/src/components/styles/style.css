@@ -119,10 +119,6 @@ h6 {
 
 }
 
-@media screen and (max-width 1440px) {
-  .boxAnnContainer {display:none !important;}
-}
-
 @media only screen and (max-width: 600px) {
   .topnavRight {
     margin-right: 35px;
@@ -396,6 +392,5 @@ p + p {
     font-size: .8rem;
 
 }
-
 
 /* FOOTER END */
