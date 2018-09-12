@@ -113,13 +113,13 @@ h6 {
     background-color: #222;
 	  height: 5px;
     width: 100%;
-    padding: 20px 20px 76px 0px;
-    margin: -25px auto 60px -20px;
+    padding: 20px 0px 76px 0px;
+    margin: -25px auto 60px auto;
     overflow: hidden;
 
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .topnavRight {
     margin-right: 35px;
   }
@@ -127,7 +127,7 @@ h6 {
   .topnavWidth {
     width: 100%;
   }
-}
+} */
 
 .topnav a {
     font-family:'robotoregular';
@@ -145,6 +145,10 @@ h6 {
 
 .topnavRight a {
   cursor: pointer;
+}
+
+ul, menu, dir {
+  -webkit-padding-start: 0px;
 }
 
 .active {
@@ -176,13 +180,24 @@ h6 {
 } */
 
 .topnavWidth {
-    width: 1070px;
-    padding-right: 10px;
+    width: 1000px;
+}
+
+.rightLink + .rightLink {
+  padding-right: 0px;
+}
+
+.rightLink:first-child {
+  padding-left: 0px;
+}
+
+#topnavLinkSpace:last-child {
+  padding-right: 0px;
 }
 
 .topnavWrap li {
     float: left;
-    margin: 20px 8px 20px 20px;
+    margin: 20px 30px 20px 0px;
     list-style-type: none;
     cursor: pointer;
     overflow: hidden;
@@ -293,11 +308,11 @@ p + p {
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .boxContainerMain {
       width: 100% !important;
   }
-}
+} */
 
 .box {
     padding: 30px 30px 30px 30px;
