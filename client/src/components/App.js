@@ -19,7 +19,7 @@ class App extends Component {
 
     render () {
         return (
-            <div className ="container" style={{backgroundImage: "url(" +WarhammerImage+")", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className ="container" style={{backgroundImage: "url("+WarhammerImage+")", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <BrowserRouter>
                     <div className="container">
                         <Header />

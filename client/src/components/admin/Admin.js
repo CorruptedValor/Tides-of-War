@@ -28,7 +28,9 @@ class Admin extends Component {
         } else if(user.auth && user.auth.isAdmin){
             if (!this.props.playerList.data){
                 //loader
+
                 return <Loader />
+
             } else {
                 return [
                     <div key ="10">
@@ -37,8 +39,10 @@ class Admin extends Component {
                     </div>
                 ];
             }
+
         } else
             return <Loader />;
+
 
     }
 
@@ -62,8 +66,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUser: () => dispatch(actions.fetchUser()),
         fetchAllPlayers: () => dispatch(actions.fetchAllPlayers())
+
     };
-}
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
