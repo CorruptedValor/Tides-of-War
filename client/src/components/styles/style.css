@@ -119,6 +119,10 @@ h6 {
 
 }
 
+@media screen and (max-width 1440px) {
+  .boxAnnContainer {display:none !important;}
+}
+
 @media only screen and (max-width: 600px) {
   .topnavRight {
     margin-right: 35px;
@@ -255,6 +259,10 @@ a {
 p {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+p + p {
+    margin-top: 16px;
 }
 
 #grad {
