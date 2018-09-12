@@ -7,7 +7,7 @@ import ArrowIcon from '../logo/ArrowIcon';
 const NewsMini = () => {
     return(
 
-			<div class="boxAnnContainer">
+			<div class="boxAnnContainer" id="pls">
   			<div class = "boxHeaderAnn" id="grad">
   				<h4 class = "boxTitleAnn">Latest News</h4>
   			</div>
