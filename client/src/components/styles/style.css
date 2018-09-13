@@ -131,9 +131,7 @@ h6 {
 
 .topnav a {
     font-family:'robotoregular';
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px;
 }
 
 .topnavRight {
@@ -176,13 +174,10 @@ h6 {
 } */
 
 .topnavWidth {
-    width: 1070px;
-    padding-right: 10px;
 }
 
 .topnavWrap li {
     float: left;
-    margin: 20px 8px 20px 20px;
     list-style-type: none;
     cursor: pointer;
     overflow: hidden;
@@ -196,7 +191,6 @@ h6 {
     fill: #F1F1F1;
     display:  block;
     position: absolute;
-    padding-top: .2rem;
 }
 
 nav a:hover {
@@ -278,12 +272,10 @@ p + p {
 		/* overflow: hidden; */
 }
 
-#activeSvg {
 		fill: #d72323;
 }
 
 .boxContainer {
-    width: 1000px;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -332,7 +324,6 @@ p + p {
     color: #F1F1F1;
     width: 100%;
     text-decoration: none;
-    margin-bottom: 0px;
 }
 
 .footerLinks a:hover {
@@ -375,16 +366,13 @@ p + p {
 
 .footerLinksLeft {
     display: inline-block;
-    width: 220px;
 }
 
 .footerLinksRight {
     display: inline-block;
     vertical-align: top;
-    width: 220px;
 }
 
-.footerCopywright {
     background-color: #222;
     color: #F1F1F1;
 	  height: 40px;

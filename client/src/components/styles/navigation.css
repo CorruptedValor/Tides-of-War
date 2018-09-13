@@ -31,21 +31,9 @@
 	display:  inline-flex;
 }
 
-.active {
-	padding-bottom: 20px;
-	border-bottom: 5px solid #d72323;
-	box-sizing:border-box;
-	display: border-box;
-
-	content: "";
-	width: 10px;
-}
-
-.active a {
 	  color: #d72323;
 }
 
-.active svg {
 fill: #d72323;
 }
 

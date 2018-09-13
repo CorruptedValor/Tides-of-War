@@ -45,7 +45,6 @@ tbody {
 
 
 .boxContainerMain {
-    width: 1000px;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -56,7 +55,6 @@ tbody {
 }
 
 .boxcontainerLeft {
-    width: 1000px;
     float: left;
     overflow:hidden;
     perspective: 1px;
@@ -75,7 +73,6 @@ tbody {
 
 
 .boxAnnContainer {
-    width: 500px;
     padding-left: 40px;
     margin-bottom: 0px;
 

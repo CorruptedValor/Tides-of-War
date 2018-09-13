@@ -30,7 +30,6 @@ const Footer = () => {
                 </div>
             </div>
 
-                <div className="footerCopywright" align="center">
                 © Copyright 2018 Battlerounds
                 </div>
 
