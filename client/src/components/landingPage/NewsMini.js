@@ -15,24 +15,31 @@ const NewsMini = () => {
   					<h5><b>Chapter Approved Preview</b></h5>
   					<h6>July 15, 2019</h6>
   						<p className="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
-  						<div className="readmoreGroup"><a href="/news#first" id="readmoreLink">Read more <ArrowIcon/>
-  						</a></div>
+  						<span className="readmoreGroup">
+                <a href="/news#first" id="readmoreLink">
+                  Read more <ArrowIcon/>
+                </a>
+              </span>
   						<div className="divider" width="90%"></div>
 
   					<h5><b>Aeldari are Dominating</b></h5>
   					<h6>July 9, 2019</h6>
   						<p className="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
-  						<div className="readmoreGroup">
-                <a href="/news#second" id="readmoreLink">Read more <ArrowIcon/></a>
-              </div>
+  						<span className="readmoreGroup">
+                <a href="/news#second" id="readmoreLink">
+                  Read more <ArrowIcon/>
+                </a>
+              </span>
   						<div className="divider" width="90%"></div>
 
   					<h5><b>Grey Knights Receive Nerfs</b></h5>
   					<h6>July 5, 2019</h6>
   						<p className="AnnPar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet neque quis urna molestie euismod.</p>
-  						<div className="readmoreGroup">
-                	<a href="/news#third" id="readmoreLink">Read more <ArrowIcon/></a>
-              </div>
+  						<span className="readmoreGroup">
+                <a href="/news#third" id="readmoreLink">
+                  Read more <ArrowIcon/>
+                </a>
+              </span>
   			  </div>
 			</div>
 

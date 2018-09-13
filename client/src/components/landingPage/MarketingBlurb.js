@@ -19,7 +19,7 @@ const MarketingBlurb = () => {
                     float: 'right',
                     display: 'block',
                     margin: 'auto',
-                    width: '30%',
+                    width: '20%',
                     paddingTop: '20px',
                     paddingLeft: '20px'
                   }}/>

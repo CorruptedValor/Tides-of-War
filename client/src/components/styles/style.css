@@ -100,6 +100,10 @@ h6 {
     font-weight: normal;
 }
 
+p + p {
+  padding-top: 16px;
+}
+
 
 /* FONT END */
 
@@ -111,10 +115,10 @@ h6 {
 .topnav {
 
     background-color: #222;
-	height: 5px;
+    height: 40px;
     width: 100%;
-    padding: 20px 20px 76px 0px;
-    margin: -25px auto 60px -20px;
+    padding: 0px 0px 50px 0px;
+    margin: 0px auto 40px 0px;
     overflow: hidden;
 
 }
@@ -131,7 +135,8 @@ h6 {
 
 .topnav a {
     font-family:'robotoregular';
-    padding: 14px;
+    padding: 14px 22px;
+    padding-right: 0px;
     text-decoration: none;
     font-size: 16px;
 }
@@ -215,7 +220,7 @@ ul, menu, dir {
 .topnavSvgActive {
     height: 1.3em;
     width: 1.3em;
-    fill: red;
+    fill: #d72323;
     display:  block;
     position: absolute;
 }
@@ -312,7 +317,7 @@ p {
 
 @media only screen and (max-width: 600px) {
   .boxContainerMain {
-      width: 100% !important;
+      width: 70%;
   }
 }
 

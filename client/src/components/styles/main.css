@@ -13,7 +13,6 @@ tbody {
   margin-bottom: 16px;
 }
 
-
 /* FONT END */
 
 
@@ -46,6 +45,7 @@ tbody {
 
 .boxContainerMain {
     height: 100%;
+    width: 70%;
     margin:0px auto;
     overflow:hidden;
     perspective: 1px;
@@ -58,6 +58,7 @@ tbody {
     float: left;
     overflow:hidden;
     perspective: 1px;
+    width: 100%;
 }
 
 #colhead {
@@ -77,6 +78,7 @@ tbody {
     margin-bottom: 0px;
 
     height: 100%;
+    width: 50%;
     overflow:hidden;
     perspective: 1px;
     float: right;
@@ -154,7 +156,7 @@ tbody {
     padding-left: 5px;
 }
 
-.readmoreGroup:hover a {
+.readmoreGroup:hover {
     font-weight: bold;
 
     -o-transition:.3s;
