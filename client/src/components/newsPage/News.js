@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import '../styles/main.css';
 import '../styles/style.css';
+import * as actions from '../../actions/index';
 import NewsCards from './NewsCards';
 import Pagination from './Pagination';
 
