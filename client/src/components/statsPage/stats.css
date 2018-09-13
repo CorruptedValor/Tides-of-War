@@ -1,3 +1,12 @@
-.graph {
-  width: 500px;
+
+.lchart {
+  margin: 0px auto 0px 0px;
+  width: 20%;
+  padding-top: 30px;
+  margin-left: -30px;
+}
+
+.graphWrapper {
+  width: 70%;
+  margin: 0px auto;
 }
