@@ -7,12 +7,12 @@ import './pagination.css';
 const Pagination = () => {
   return(
     <div id="pagingation" align="center">
-      {/* <a href="#" class="pageLink" aria-label="Previous" id="left"><span aria-hidden="true">❮</span></a> */}
+      {/* <a href="#" className="pageLink" aria-label="Previous" id="left"><span aria-hidden="true">❮</span></a> */}
 
-     <button class="pageBtn-active">1</button>
-     <button class="pageBtn">2</button>
+     <button className="pageBtn-active">1</button>
+     <button className="pageBtn">2</button>
 
-      <a href="#" class="pageLink" aria-label="Next" id="right"><span aria-hidden="true">❯</span></a>
+      <a href="#" className="pageLink" aria-label="Next" id="right"><span aria-hidden="true">❯</span></a>
     </div>
     );
 
