@@ -273,6 +273,15 @@ p {
   margin-bottom: 0px;
 }
 
+@media only screen and (max-width: 800px) {
+  .topnavWidth {
+    width: 90%;
+  }
+  .boxContainer {
+    width: 90% !important;
+  }
+}
+
 #grad {
 		height: 60px;
 		background: linear-gradient(-90deg, #A42C2C, #d72323);

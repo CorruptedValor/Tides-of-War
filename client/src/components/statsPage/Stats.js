@@ -4,22 +4,23 @@ import * as actions from '../../actions';
 
 import '../styles/main.css';
 import '../styles/style.css';
+import './stats.css';
 import LineGraph from './LineGraph';
 import GraphForm from './GraphForm';
 import Loader from '../loader/Loader';
 
 class Stats extends Component {
-	
+
 	componentWillMount() {
 
 		this.props.fetchAllPlayers();
-		
+
     }
 
 	renderContent() {
-		
+
 		if(this.props.playerList.fetching){
-				
+
 			return <Loader />
 
 		} else {
@@ -31,8 +32,10 @@ class Stats extends Component {
 							<h3 className = "boxTitle">Stats</h3>
 						</div>
 						<div className="box" id="roundbox">
-							<GraphForm/>
-							<LineGraph/>
+							<div className="graphWrapper">
+								<GraphForm/>
+								<LineGraph/>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -58,7 +61,7 @@ function mapStateToProps(state) {
     return {
 
 		playerList: state.playerList
-		
+
     };
 }
 

@@ -66,15 +66,14 @@ tbody {
 }
 
 @media only screen and (max-width: 1000px) {
+  
   .boxAnnContainer {
     display:none;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .topnavWidth {
-    width: 90%;
-  }
+
   .boxContainerMain {
     width: 90%;
   }
