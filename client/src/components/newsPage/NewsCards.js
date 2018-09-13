@@ -12,11 +12,11 @@ import NewsCardFive from './NewsCardFive';
 const NewsCards = () => {
   return(
 <div>
-				<NewsCardOne className="newscard"/>
-        <NewsCardTwo className="newscard"/>
-        <NewsCardThree className="newscard"/>
-        <NewsCardFour className="newscard"/>
-        <NewsCardFive className="newscard"/>
+				<NewsCardOne classNameName="newscard"/>
+        <NewsCardTwo classNameName="newscard"/>
+        <NewsCardThree classNameName="newscard"/>
+        <NewsCardFour classNameName="newscard"/>
+        <NewsCardFive classNameName="newscard"/>
 </div>
     );
 
