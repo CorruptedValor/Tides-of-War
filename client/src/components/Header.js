@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, Route, Link } from 'react-router-dom';
-
+import { Route, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 import './styles/style.css';
-import HeaderRouterLink from './HeaderRouteLink';
 import HomeIcon from './logo/HomeIcon';
 import RoundsIcon from './logo/RoundsIcon';
 import StatsIcon from './logo/StatsIcon';
@@ -45,26 +44,49 @@ class Header extends Component {
                   {/* <NavLink exact to="/"><HomeIcon/> Home</NavLink> */}
                   <Route exact path="/" children={({ match }) => (
                     <div>
-                      <HomeIcon className={match ? 'topnavSvgActive' : 'topnavSvg'}/>
-                      <Link className={match ? 'active' : ''} to="/" >Home</Link>
+                      <Link className={match ? 'active' : ''} to="/" onlyActiveOnIndex>
+                        <HomeIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} onlyActiveOnIndex/>
+                        Home
+                      </Link>
                     </div>
                   )}/>
                 </div>
               </li>
               <li>
                 <div className="hovercolorGroup">
-                  <NavLink to="/rounds"><RoundsIcon/> Rounds</NavLink>
+                  <Route path="/rounds" children={({ match }) => (
+                    <div>
+                      <Link className={match ? 'active' : ''} to="rounds" onlyActiveOnIndex>
+                        <RoundsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} onlyActiveOnIndex/>
+                        Rounds
+                      </Link>
+                    </div>
+                  )}/>
                 </div>
               </li>
               <li>
                 <div className="hovercolorGroup">
-                  <NavLink to="/stats"><StatsIcon/> Stats</NavLink>
+                  <Route path="/stats" children={({ match }) => (
+                    <div>                      
+                      <Link className={match ? 'active' : ''} to="stats" >
+                      <StatsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'}/>
+                        Stats
+                      </Link>
+                    </div>
+                  )}/>
                 </div>
               </li>
               <li>
-                  <div className="hovercolorGroup">
-                    <NavLink to="/news"><NewsIcon/> News</NavLink>
-                  </div>
+                <div className="hovercolorGroup">
+                  <Route path="/news" children={({ match }) => (
+                    <div>
+                      <Link className={match ? 'active' : ''} to="news" >
+                        <NewsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'}/>
+                        News
+                      </Link>
+                    </div>
+                  )}/>
+                 </div>
               </li>
               <div className="topnavLine"></div>
             </ul>
@@ -83,4 +105,4 @@ function mapStateToProps({ user }){
     return { user };
 };
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
