@@ -44,9 +44,10 @@ class Header extends Component {
                   {/* <NavLink exact to="/"><HomeIcon/> Home</NavLink> */}
                   <Route exact path="/" children={({ match }) => (
                     <div>
-                      <Link className={match ? 'active' : ''} to="/" onlyActiveOnIndex>
-                        <HomeIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} onlyActiveOnIndex/>
+                      <Link className={match ? 'active' : ''} to="/">
+                        <HomeIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} />
                         Home
+                        {console.log(JSON.stringify(match))}
                       </Link>
                     </div>
                   )}/>
@@ -56,9 +57,10 @@ class Header extends Component {
                 <div className="hovercolorGroup">
                   <Route path="/rounds" children={({ match }) => (
                     <div>
-                      <Link className={match ? 'active' : ''} to="rounds" onlyActiveOnIndex>
-                        <RoundsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} onlyActiveOnIndex/>
-                        Rounds
+                      <Link className={match ? 'active' : ''} to="rounds" >
+                        <RoundsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'} />
+                        Rounds 
+                        {console.log(JSON.stringify(match))}
                       </Link>
                     </div>
                   )}/>
@@ -71,6 +73,7 @@ class Header extends Component {
                       <Link className={match ? 'active' : ''} to="stats" >
                       <StatsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'}/>
                         Stats
+                        {console.log(JSON.stringify(match))}
                       </Link>
                     </div>
                   )}/>
@@ -83,6 +86,7 @@ class Header extends Component {
                       <Link className={match ? 'active' : ''} to="news" >
                         <NewsIcon className={match ? 'topnavSvgActive' : 'topnavSvg'}/>
                         News
+                        {console.log(JSON.stringify(match))}
                       </Link>
                     </div>
                   )}/>
