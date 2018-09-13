@@ -41,7 +41,7 @@ tbody {
 
 
 .boxContainerMain {
-    width: 1000px;
+    width: 70%;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -52,7 +52,7 @@ tbody {
 }
 
 .boxcontainerLeft {
-    width: 1000px;
+    width: 100%;
     float: left;
     overflow:hidden;
     perspective: 1px;
@@ -71,7 +71,7 @@ tbody {
 
 
 .boxAnnContainer {
-    width: 500px;
+    width: 50%;
     padding-left: 40px;
     margin-bottom: 0px;
 
@@ -85,10 +85,14 @@ tbody {
     display:inline-block;
 }
 
-@media only screen and (max-width: 480px) {
-   .boxRanking {
-     display: none !important;
+@media only screen and (max-width: 1000px) {
+   .boxAnnContainer {
+     display: none;
    }
+
+   /* p {
+     font-size: 100%;
+   } */
 }
 
 .boxAnn {

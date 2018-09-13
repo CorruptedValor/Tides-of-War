@@ -131,9 +131,9 @@ h6 {
 
 .topnav a {
     font-family:'robotoregular';
-    padding: 14px 16px;
+    padding: 14px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .topnavRight {
@@ -176,18 +176,33 @@ h6 {
 } */
 
 .topnavWidth {
-    width: 1070px;
-    padding-right: 10px;
+    width: 70%;
+}
+
+.rightLink + .rightLink {
+  padding-right: 0px;
+}
+
+.rightLink:first-child {
+  padding-left: 0px;
+}
+
+#topnavLinkSpace:last-child {
+  padding-right: 0px;
 }
 
 .topnavWrap li {
     float: left;
-    margin: 20px 8px 20px 20px;
+    margin: 20px 20px 30px 0px;
     list-style-type: none;
     cursor: pointer;
     overflow: hidden;
     display: inline-block;
     padding-bottom: 14px;
+}
+
+ul, menu, dir {
+    -webkit-padding-start: 0px;
 }
 
 .topnavSvg {
@@ -196,7 +211,6 @@ h6 {
     fill: #F1F1F1;
     display:  block;
     position: absolute;
-    padding-top: .2rem;
 }
 
 nav a:hover {
@@ -274,12 +288,12 @@ p {
 		/* overflow: hidden; */
 }
 
-#activeSvg {
+.activeSvg {
 		fill: #d72323;
 }
 
 .boxContainer {
-    width: 1000px;
+    width: 70%;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -317,7 +331,9 @@ p {
 }
 
 
+
 /* BODY END */
+
 
 
 
@@ -328,7 +344,6 @@ p {
     color: #F1F1F1;
     width: 100%;
     text-decoration: none;
-    margin-bottom: 0px;
 }
 
 .footerLinks a:hover {
@@ -371,16 +386,15 @@ p {
 
 .footerLinksLeft {
     display: inline-block;
-    width: 220px;
+    margin-right: 150px;
 }
 
 .footerLinksRight {
     display: inline-block;
     vertical-align: top;
-    width: 220px;
 }
 
-.footerCopywright {
+.footerCopyright {
     background-color: #222;
     color: #F1F1F1;
 	  height: 40px;

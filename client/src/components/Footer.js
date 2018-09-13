@@ -30,7 +30,7 @@ const Footer = () => {
                 </div>
             </div>
 
-                <div className="footerCopywright" align="center">
+                <div className="footerCopyright" align="center">
                 © Copyright 2018 Battlerounds
                 </div>
 

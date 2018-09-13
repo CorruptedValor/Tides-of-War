@@ -16,7 +16,7 @@ const MarketingBlurb = () => {
             <div className="box" id="roundbox">
                 <img src={DiceImage}
                   style={{
-                    width: '30%',
+                    width: '150px',
                     float: 'right',
                     display: 'block',
                     margin: 'auto',

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 import './styles/style.css';
@@ -9,7 +9,23 @@ import RoundsIcon from './logo/RoundsIcon';
 import StatsIcon from './logo/StatsIcon';
 import NewsIcon from './logo/NewsIcon';
 
+  let currentPath = '';
+
 class Header extends Component {
+
+
+
+  setSVG(){
+    console.log(currentPath);
+    switch (currentPath) {
+      case '/':
+        return {'fill': '#d72323' };
+        break;
+      default:
+        return {};
+    }
+  }
+
     renderContent(){
         if (this.props.user){
             switch (this.props.user.auth){
@@ -29,49 +45,69 @@ class Header extends Component {
         }
     }
 
-    render (){
-        return(
-            <nav>
-               <div className="topnav" align="center" id="headshadow" style={{borderBottomColor: '#47315a',
-               borderBottomHeight: 1 }}>
-                    <div className="topnavWidth">
-                        <div className="topnavWrap">
-                            <ul>
-                                <li>
-                                		<g className="hovercolorGroup">
-                                      <HomeIcon/>
-                                      <a href="/" id="topnavLinkSpace">Home</a>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                      <RoundsIcon/>
-                                      <a href="/rounds" id="topnavLinkSpace">Rounds</a>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                    <StatsIcon/>
-                                    <a href="/stats" id="topnavLinkSpace">Stats</a>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                      <NewsIcon/>
-                                      <a href="/news" id="topnavLinkSpace">News</a>
-                                    </g>
-                                </li>
-                                    <div className="topnavLine"></div>
-                            </ul>
+  getPath(match, location){
+    // console.log(match);
+    // console.log(location);
+
+    currentPath = location.pathname;
+
+    if (!match){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  render (){
+    return(
+      <nav>
+        <div className="topnav" align="center" id="headshadow" style={{borderBottomColor: '#47315a',
+           borderBottomHeight: 1 }}>
+            <div className="topnavWidth">
+              <div className="topnavWrap">
+                <ul>
+                  <li>
+                  	<div className="hovercolorGroup">
+                        <HomeIcon style={this.setSVG}/>
+                        <NavLink exact to="/" activeStyle={{
+                          fontWeight: 'bold',
+                          color: 'red',
+                          fill: 'red'
+                        }}
+                       isActive={this.getPath}>
+                         Home
+                       </NavLink>
+                      </div>
+                    </li>
+                    <li>
+                        <div className="hovercolorGroup">
+                          <RoundsIcon/>
+                          <NavLink to="/rounds">Rounds</NavLink>
                         </div>
-                            <div className="topnavRight">
-                                {this.renderContent()}
-                            </div>
-                    </div>
-                </div>
-            </nav>
-        );
-    };
+                    </li>
+                    <li>
+                        <div className="hovercolorGroup">
+                        <StatsIcon/>
+                        <NavLink to="/stats">Stats</NavLink>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="hovercolorGroup">
+                        <NewsIcon/>
+                        <NavLink to="/news">News</NavLink>
+                      </div>
+                    </li>
+                      <div className="topnavLine"></div>
+                    </ul>
+                  </div>
+                    <div className="topnavRight">
+                          {this.renderContent()}
+                      </div>
+              </div>
+            </div>
+        </nav>
+    );
+  };
 };
 
 function mapStateToProps({ user }){
