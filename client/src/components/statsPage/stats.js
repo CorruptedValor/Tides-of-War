@@ -18,8 +18,10 @@ class Stats extends Component {
 
 	renderContent() {
 		
-		if(this.props.fetchAllPlayers.fetching){
+		if(this.props.playerList.fetching){
+				
 			return <Loader />
+
 		} else {
 			return(
 
@@ -29,8 +31,8 @@ class Stats extends Component {
 							<h3 className = "boxTitle">Stats</h3>
 						</div>
 						<div className="box" id="roundbox">
-						<GraphForm/>
-						<LineGraph/>
+							<GraphForm/>
+							<LineGraph/>
 						</div>
 					</div>
 				</div>
@@ -42,9 +44,11 @@ class Stats extends Component {
 	render()
 	{
 		return(
+
 			<div>
 				{this.renderContent()}
 			</div>
+
 		);
 	}
 };

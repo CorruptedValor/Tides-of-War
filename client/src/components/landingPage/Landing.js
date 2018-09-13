@@ -1,23 +1,60 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import '../styles/style.css';
+import LoaderIcon from '../logo/LoaderIcon';
 import MarketingBlurb from './MarketingBlurb';
 import NewsMini from './NewsMini';
 import Rankings from './Rankings';
+import * as actions from '../../actions/index';
 
-const Landing = () => {
-    return(
-		  <div class="boxContainerMain">
-			<div class="boxcontainerLeft">
-				<MarketingBlurb/>
-				<Rankings/>
+class Landing extends Component {
+
+	componentWillMount() {
+        this.props.fetchAllPlayers();
+	}
+	
+	renderContent(){
+		if(this.props.playerList.fetching){
+			return <LoaderIcon />
+		} else {
+			return (
+				<div className="boxContainerMain">
+					<div className="boxcontainerLeft">
+						<MarketingBlurb/>
+						<Rankings/>
+					</div>
+						<NewsMini/>
 				</div>
-				<NewsMini/>
+			)
+		}
+	}
+	
+	render(){		
+		return(
+			<div>
+				{this.renderContent()}
 			</div>
-    );
-
+		);
+	}
 };
 
+const mapStateToProps = (state) => {
+
+    return { 
+        playerList: state.playerList
+	 };
+	 
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return { 
+
+        fetchAllPlayers: () => dispatch(actions.fetchAllPlayers()),
+            
+    }
+}
 
 
-export default Landing;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

@@ -4,9 +4,11 @@ export default function (state = null, action) {
     switch (action.type) {
         case "FETCH_USER_PENDING":
             return {
+
                 ...state,
                 fetching: true,
                 auth: false
+                
             }
         case "FETCH_USER_REJECTED":
             return {
