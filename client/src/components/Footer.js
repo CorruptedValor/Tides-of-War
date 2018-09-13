@@ -31,9 +31,8 @@ const Footer = () => {
             </div>
 
                 © Copyright 2018 Battlerounds
-                </div>
-
         </div>
+
     );
 };
 
