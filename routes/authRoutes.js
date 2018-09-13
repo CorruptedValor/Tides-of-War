@@ -12,8 +12,7 @@ module.exports = (app) => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      var backURL = req.header('Referer') || '/'
-      res.redirect(backURL)
+      res.redirect('/')
     }
   )
 
