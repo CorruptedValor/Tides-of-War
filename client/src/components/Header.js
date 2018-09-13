@@ -45,104 +45,44 @@ class Header extends Component {
         }
     }
 
-<<<<<<< HEAD
-    render (){
-        return(
-            <nav>
-               <div className="topnav" align="center" id="headshadow" style={{borderBottomColor: '#47315a',
-               borderBottomHeight: 1 }}>
-                    <div className="topnavWidth">
-                        <div className="topnavWrap">
-                            <ul>
-                                <li>
-                                	<g className="hovercolorGroup">
-                                      <HomeIcon/>
-                                      <NavLink to="/">Home</NavLink>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                      <RoundsIcon/>
-                                      <NavLink to="/rounds">Rounds</NavLink>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                    <StatsIcon/>
-                                    <NavLink to="/stats">Stats</NavLink>
-                                    </g>
-                                </li>
-                                <li>
-                                    <g className="hovercolorGroup">
-                                      <NewsIcon/>
-                                      <NavLink to="/news">News</NavLink>
-                                    </g>
-                                </li>
-                                    <div className="topnavLine"></div>
-                            </ul>
-=======
-  getPath(match, location){
-    // console.log(match);
-    // console.log(location);
-
-    currentPath = location.pathname;
-
-    if (!match){
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   render (){
     return(
-      <nav>
-        <div className="topnav" align="center" id="headshadow" style={{borderBottomColor: '#47315a',
-           borderBottomHeight: 1 }}>
-            <div className="topnavWidth">
-              <div className="topnavWrap">
-                <ul>
-                  <li>
-                  	<div className="hovercolorGroup">
-                        <HomeIcon style={this.setSVG}/>
-                        <NavLink exact to="/" activeStyle={{
-                          fontWeight: 'bold',
-                          color: 'red',
-                          fill: 'red'
-                        }}
-                       isActive={this.getPath}>
-                         Home
-                       </NavLink>
-                      </div>
-                    </li>
-                    <li>
-                        <div className="hovercolorGroup">
-                          <RoundsIcon/>
-                          <NavLink to="/rounds">Rounds</NavLink>
->>>>>>> Some-new-branch
-                        </div>
-                    </li>
-                    <li>
-                        <div className="hovercolorGroup">
-                        <StatsIcon/>
-                        <NavLink to="/stats">Stats</NavLink>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="hovercolorGroup">
-                        <NewsIcon/>
-                        <NavLink to="/news">News</NavLink>
-                      </div>
-                    </li>
-                      <div className="topnavLine"></div>
-                    </ul>
+      <div className="topnav" align="center" id="headshadow" style={{borderBottomColor: '#47315a',
+        borderBottomHeight: 1 }}>
+        <div className="topnavWidth">
+          <div className="topnavWrap">
+            <ul>
+              <li>
+                <div className="hovercolorGroup">
+                  <NavLink exact to="/"><HomeIcon/> Home</NavLink>
+                </div>
+              </li>
+              <li>
+                <div className="hovercolorGroup">
+                  
+                  <NavLink to="/rounds"><RoundsIcon/> Rounds</NavLink>
+                </div>
+              </li>
+              <li>
+                <div className="hovercolorGroup">
+                  
+                  <NavLink to="/stats"><StatsIcon/> Stats</NavLink>
+                </div>
+              </li>
+              <li>
+                  <div className="hovercolorGroup">
+                    <NavLink to="/news"><NewsIcon/> News</NavLink>
                   </div>
-                    <div className="topnavRight">
-                          {this.renderContent()}
-                      </div>
-              </div>
-            </div>
-        </nav>
+              </li>
+              <div className="topnavLine"></div>
+            </ul>
+          </div>
+
+          <div className="topnavRight">
+            {this.renderContent()}
+          </div>
+      </div>
+    </div>
     );
   };
 };
