@@ -9,15 +9,13 @@ import 'react-table/react-table.css';
 import * as actions from '../../actions';
 import generateMatchData from '../../util/generateMatchData'
 
-var trStyle = {
-	alignment: 'center'
-}
+// var trStyle = {
+// 	alignment: 'center'
+// }
 
 class Rankings extends Component {
 	
-	componentWillMount() {
-        this.props.fetchAllPlayers();
-	}
+	
 	
 
 	sortByScore(data) {
