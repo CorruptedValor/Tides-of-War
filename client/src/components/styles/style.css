@@ -48,9 +48,9 @@
 /* COLORS START */
 
 
-$offwhite: #F1F1F1;
+/* $offwhite: #F1F1F1;
 $lightred: #dce4ec;
-$darkred: #A42C2C;
+$darkred: #A42C2C; */
 
 
 /* COLORS END */
@@ -111,7 +111,7 @@ h6 {
 .topnav {
 
     background-color: #222;
-	  height: 5px;
+	height: 5px;
     width: 100%;
     padding: 20px 20px 76px 0px;
     margin: -25px auto 60px -20px;
@@ -131,7 +131,9 @@ h6 {
 
 .topnav a {
     font-family:'robotoregular';
+    padding: 14px;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .topnavRight {
@@ -166,7 +168,6 @@ h6 {
 /* .topnavLine {
   border-bottom-color: linear-gradient(-90deg, #A42C2C, #d72323);
   border-bottom: 3px solid;
-
   background {
   position: 0 4rem;
   size: 1px 4px;
@@ -174,10 +175,24 @@ h6 {
 } */
 
 .topnavWidth {
+    width: 70%;
+}
+
+.rightLink + .rightLink {
+  padding-right: 0px;
+}
+
+.rightLink:first-child {
+  padding-left: 0px;
+}
+
+#topnavLinkSpace:last-child {
+  padding-right: 0px;
 }
 
 .topnavWrap li {
     float: left;
+    margin: 20px 20px 30px 0px;
     list-style-type: none;
     cursor: pointer;
     overflow: hidden;
@@ -185,10 +200,22 @@ h6 {
     padding-bottom: 14px;
 }
 
+ul, menu, dir {
+    -webkit-padding-start: 0px;
+}
+
 .topnavSvg {
     height: 1.3em;
     width: 1.3em;
     fill: #F1F1F1;
+    display:  block;
+    position: absolute;
+}
+
+.topnavSvgActive {
+    height: 1.3em;
+    width: 1.3em;
+    fill: red;
     display:  block;
     position: absolute;
 }
@@ -251,10 +278,6 @@ p {
   margin-bottom: 0px;
 }
 
-p + p {
-    margin-top: 16px;
-}
-
 #grad {
 		height: 60px;
 		background: linear-gradient(-90deg, #A42C2C, #d72323);
@@ -269,13 +292,15 @@ p + p {
 		border-bottom-right-radius: 8px;
 
 		perspective: 1px;
-		/* overflow: hidden; */
+		/* overflow: hidden; #d72323 */
 }
 
-		fill: #d72323;
+.activeSvg {
+		fill: red !important;
 }
 
 .boxContainer {
+    width: 70%;
     height: 100%;
     margin:0px auto;
     overflow:hidden;
@@ -313,7 +338,9 @@ p + p {
 }
 
 
+
 /* BODY END */
+
 
 
 
@@ -366,6 +393,7 @@ p + p {
 
 .footerLinksLeft {
     display: inline-block;
+    margin-right: 150px;
 }
 
 .footerLinksRight {
@@ -373,6 +401,7 @@ p + p {
     vertical-align: top;
 }
 
+.footerCopyright {
     background-color: #222;
     color: #F1F1F1;
 	  height: 40px;
@@ -380,5 +409,6 @@ p + p {
     font-size: .8rem;
 
 }
+
 
 /* FOOTER END */
